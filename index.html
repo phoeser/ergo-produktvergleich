@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERGO Produktvergleich — Wettbewerbsanalyse</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f6fa;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .filter-bar {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .filter-group label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #666;
+            letter-spacing: 0.5px;
+        }
+
+        select {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: white;
+            cursor: pointer;
+            min-width: 160px;
+            transition: border-color 0.2s;
+        }
+
+        select:hover {
+            border-color: #e30613;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #e30613;
+            box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.1);
+        }
+
+        .kpi-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .kpi-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .kpi-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .kpi-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e30613;
+            margin-bottom: 5px;
+        }
+
+        .kpi-subtitle {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .content-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .content-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        table thead {
+            background-color: #f9f9f9;
+            border-bottom: 2px solid #eee;
+        }
+
+        table th {
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        table th:hover {
+            background-color: #f0f0f0;
+        }
+
+        table th.sortable::after {
+            content: ' ⇅';
+            color: #ccc;
+            font-size: 12px;
+        }
+
+        table th.sort-asc::after {
+            content: ' ↑';
+            color: #e30613;
+        }
+
+        table th.sort-desc::after {
+            content: ' ↓';
+            color: #e30613;
+        }
+
+        table td {
+            padding: 12px 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        table tbody tr:hover {
+            background-color: #fafafa;
+        }
+
+        table tbody tr.ergo-row {
+            background-color: #fff5f5;
+            border-left: 3px solid #e30613;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .badge-green {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .badge-yellow {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-red {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge-blue {
+            background-color: #cfe2ff;
+            color: #084298;
+        }
+
+        .badge-sofort {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .rating {
+            color: #e30613;
+            font-weight: 600;
+        }
+
+        .price {
+            font-weight: 600;
+            color: #e30613;
+        }
+
+        .no-data {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn-refresh {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: #e30613;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            white-space: nowrap;
+        }
+
+        .btn-refresh:hover {
+            background: #c50510;
+            transform: translateY(-1px);
+        }
+
+        .btn-refresh:active {
+            transform: translateY(0);
+        }
+
+        .btn-refresh svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .update-info {
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+            text-align: right;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .modal h3 {
+            font-size: 18px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .modal .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .modal .status-current {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .modal .status-old {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-actions button {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background 0.2s;
+        }
+
+        .modal-actions .btn-primary {
+            background: #e30613;
+            color: white;
+        }
+
+        .modal-actions .btn-primary:hover {
+            background: #c50510;
+        }
+
+        .modal-actions .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .modal-actions .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .modal .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .modal .close-btn:hover {
+            color: #333;
+        }
+
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .steps-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .steps-list .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border-radius: 50%;
+            background: #e30613;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-row">
+                <div>
+                    <h1>ERGO Produktvergleich — Wettbewerbsanalyse</h1>
+                    <p class="subtitle">Marktübersicht und Tarifvergleiche</p>
+                </div>
+                <div style="text-align: right;">
+                    <button class="btn-refresh" onclick="openUpdateModal()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                        Aktualisieren
+                    </button>
+                    <div class="update-info" id="updateTimestamp">Stand: April 2026</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="modal-overlay" id="updateModal">
+            <div class="modal">
+                <button class="close-btn" onclick="closeUpdateModal()">&times;</button>
+                <h3>Daten aktualisieren</h3>
+                <span class="status-badge status-current" id="statusBadge">Daten aktuell</span>
+                <p>Die Vergleichsdaten werden \u00fcber <strong>Claude Cowork</strong> automatisch von Vergleichsportalen und Anbieter-Webseiten gecrawlt.</p>
+                <ul class="steps-list">
+                    <li><span class="step-num">1</span> \u00d6ffne Claude Cowork auf deinem Computer</li>
+                    <li><span class="step-num">2</span> Sage: <em>\"Bitte aktualisiere die Wettbewerbsdaten\"</em></li>
+                    <li><span class="step-num">3</span> Claude crawlt die neuesten Preise und aktualisiert das Dashboard</li>
+                </ul>
+                <p style="font-size: 12px; color: #999;">Tipp: Du kannst auch eine automatische Aktualisierung einrichten \u2014 frage Claude nach einem Zeitplan.</p>
+                <div class="modal-actions">
+                    <button class="btn-secondary" onclick="markAsChecked()">Als gepr&uuml;ft markieren</button>
+                    <button class="btn-primary" onclick="triggerCrawl()">Crawling starten</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-bar" id="filterBar">
+            <!-- Dynamically populated -->
+        </div>
+
+        <div class="kpi-container" id="kpiContainer">
+            <!-- Dynamically populated -->
+        </div>
+
+        <div class="content-row">
+            <div class="card">
+                <h2>Vergleichstabelle</h2>
+                <div class="table-wrapper">
+                    <table id="comparisonTable">
+                        <thead id="tableHead"></thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Preisvergleich (Top 18)</h2>
+                <div class="chart-container">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Datenstand: April 2026 · Beiträge sind Richtwerte basierend auf öffentlichen Quellen.
+        </footer>
+    </div>
+
+    <script>
+        // Daten werden aus data.json geladen
+        let PRODUCTS = {};
+        const DATA_URL = 'data.json';
+        // GitHub Action Config — nach Repo-Erstellung hier eintragen:
+        const GITHUB_REPO = 'phoeser/ergo-produktvergleich';
+        const GITHUB_ACTION_WORKFLOW = 'crawl-data.yml';
+
+        let loadedFromJSON = false;
+
+        async function loadData() {
+            try {
+                const resp = await fetch(DATA_URL + '?t=' + Date.now());
+                const json = await resp.json();
+                PRODUCTS = json.products;
+                loadedFromJSON = true;
+                if (json.lastUpdated) {
+                    const d = new Date(json.lastUpdated);
+                    const str = d.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+                    document.getElementById('updateTimestamp').textContent = 'Stand: ' + str;
+                }
+                renderFilterBar();
+                updateDashboard();
+            } catch(e) {
+                console.warn('data.json nicht geladen, nutze eingebettete Daten:', e);
+                initFallbackData();
+                renderFilterBar();
+                updateDashboard();
+            }
+        }
+
+        function initFallbackData() {
+            // Minimal-Fallback falls data.json nicht erreichbar
+            PRODUCTS = { sterbegeld: {
+                name: 'Sterbegeldversicherung',
+                type: 'monthly',
+                filters: {
+                    alter: { label: 'Alter', options: [50, 60], default: 50 },
+                    gesundheit: { label: 'Gesundheitsfragen', options: ['Alle', 'Ohne Gesundheitsfragen', 'Mit Gesundheitsfragen'], default: 'Alle' }
+                },
+                columns: ['Anbieter', 'Tarif', 'Beitrag/Monat', 'Wartezeit', 'Gesundheitsf.', 'Max. Summe', 'Unfalltod', 'Bewertung'],
+                defaultSort: 'Beitrag/Monat',
+                data: {
+                    50: [
+                        { anbieter: 'ERGO', tarif: 'Grundschutz', beitrag: 26.90, wartezeit: 36, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 3.8, isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Komfort', beitrag: 31.20, wartezeit: 18, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.5, isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Premium', beitrag: 35.80, wartezeit: 18, gesundheit: 'Nein', maxSumme: 20000, unfall: '2x', bewertung: 4.7, isErgo: true },
+                        { anbieter: 'DELA', tarif: 'Sorgenfrei 85', beitrag: 25.50, wartezeit: 18, gesundheit: 'Nein', maxSumme: 25000, unfall: '2x', bewertung: 4.8, isErgo: false },
+                        { anbieter: 'DELA', tarif: 'Sofort', beitrag: 29.60, wartezeit: 0, gesundheit: 'Ja', maxSumme: 25000, unfall: '2x', bewertung: 4.9, isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'BestattungsSchutz', beitrag: 26.80, wartezeit: 6, gesundheit: 'Ja', maxSumme: 20000, unfall: '2x', bewertung: 4.6, isErgo: false },
+                        { anbieter: 'IDEAL', tarif: 'SterbeGeld 65', beitrag: 24.30, wartezeit: 0, gesundheit: 'Ja', maxSumme: 20000, unfall: '2x', bewertung: 4.5, isErgo: false },
+                        { anbieter: 'LV 1871', tarif: 'Comfort Plus', beitrag: 23.20, wartezeit: 6, gesundheit: 'Nein', maxSumme: 12500, unfall: '2x', bewertung: 4.6, isErgo: false },
+                        { anbieter: 'Monuta', tarif: 'Trauerfall 85', beitrag: 25.00, wartezeit: 0, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.7, isErgo: false },
+                        { anbieter: 'Hannoversche', tarif: 'Basis', beitrag: 34.53, wartezeit: 36, gesundheit: 'Nein', maxSumme: 25000, unfall: '2x', bewertung: 4.4, isErgo: false },
+                        { anbieter: 'Hannoversche', tarif: 'Plus', beitrag: 35.13, wartezeit: 36, gesundheit: 'Nein', maxSumme: 25000, unfall: '2x', bewertung: 4.6, isErgo: false },
+                        { anbieter: 'Signal Iduna', tarif: 'Sterbegeld SI', beitrag: 27.60, wartezeit: 24, gesundheit: 'Nein', maxSumme: 12500, unfall: '2x', bewertung: 4.3, isErgo: false },
+                        { anbieter: 'CosmosDirekt', tarif: 'CRS', beitrag: 21.40, wartezeit: 36, gesundheit: 'Nein', maxSumme: 20000, unfall: '1x', bewertung: 4.2, isErgo: false },
+                        { anbieter: 'GE·BE·IN', tarif: 'Sterbegeld 85', beitrag: 20.59, wartezeit: 24, gesundheit: 'Nein', maxSumme: 15000, unfall: '1x', bewertung: 4.4, isErgo: false },
+                        { anbieter: 'die Bayerische', tarif: 'Komfort', beitrag: 26.20, wartezeit: 18, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.5, isErgo: false },
+                        { anbieter: 'Nürnberger', tarif: '2.1', beitrag: 26.60, wartezeit: 24, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.3, isErgo: false },
+                        { anbieter: 'HanseMerkur', tarif: 'Sterbegeld', beitrag: 27.20, wartezeit: 36, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.2, isErgo: false },
+                        { anbieter: 'HUK-COBURG', tarif: 'Sterbegeld', beitrag: 25.90, wartezeit: 36, gesundheit: 'Nein', maxSumme: 15000, unfall: '1x', bewertung: 4.1, isErgo: false },
+                        { anbieter: 'R+V', tarif: 'Basis', beitrag: 27.80, wartezeit: 24, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.2, isErgo: false },
+                        { anbieter: 'LVM', tarif: 'Sterbegeld', beitrag: 25.60, wartezeit: 24, gesundheit: 'Nein', maxSumme: 20000, unfall: '1x', bewertung: 4.3, isErgo: false },
+                        { anbieter: 'Volkswohl Bund', tarif: 'VB', beitrag: 25.80, wartezeit: 24, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.3, isErgo: false }
+                    ],
+                    60: [
+                        { anbieter: 'ERGO', tarif: 'Grundschutz', beitrag: 39.06, wartezeit: 36, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 3.8, isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Komfort', beitrag: 45.30, wartezeit: 18, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.5, isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Premium', beitrag: 51.98, wartezeit: 18, gesundheit: 'Nein', maxSumme: 20000, unfall: '2x', bewertung: 4.7, isErgo: true },
+                        { anbieter: 'DELA', tarif: 'Sorgenfrei 85', beitrag: 37.03, wartezeit: 18, gesundheit: 'Nein', maxSumme: 25000, unfall: '2x', bewertung: 4.8, isErgo: false },
+                        { anbieter: 'DELA', tarif: 'Sofort', beitrag: 46.89, wartezeit: 0, gesundheit: 'Ja', maxSumme: 25000, unfall: '2x', bewertung: 4.9, isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'BestattungsSchutz', beitrag: 38.91, wartezeit: 6, gesundheit: 'Ja', maxSumme: 20000, unfall: '2x', bewertung: 4.6, isErgo: false },
+                        { anbieter: 'IDEAL', tarif: 'SterbeGeld 65', beitrag: 35.28, wartezeit: 0, gesundheit: 'Ja', maxSumme: 20000, unfall: '2x', bewertung: 4.5, isErgo: false },
+                        { anbieter: 'LV 1871', tarif: 'Comfort Plus', beitrag: 33.69, wartezeit: 6, gesundheit: 'Nein', maxSumme: 12500, unfall: '2x', bewertung: 4.6, isErgo: false },
+                        { anbieter: 'Monuta', tarif: 'Trauerfall 85', beitrag: 36.30, wartezeit: 0, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.7, isErgo: false },
+                        { anbieter: 'Hannoversche', tarif: 'Basis', beitrag: 50.14, wartezeit: 36, gesundheit: 'Nein', maxSumme: 25000, unfall: '2x', bewertung: 4.4, isErgo: false },
+                        { anbieter: 'Hannoversche', tarif: 'Plus', beitrag: 50.99, wartezeit: 36, gesundheit: 'Nein', maxSumme: 25000, unfall: '2x', bewertung: 4.6, isErgo: false },
+                        { anbieter: 'Signal Iduna', tarif: 'Sterbegeld SI', beitrag: 40.07, wartezeit: 24, gesundheit: 'Nein', maxSumme: 12500, unfall: '2x', bewertung: 4.3, isErgo: false },
+                        { anbieter: 'CosmosDirekt', tarif: 'CRS', beitrag: 31.07, wartezeit: 36, gesundheit: 'Nein', maxSumme: 20000, unfall: '1x', bewertung: 4.2, isErgo: false },
+                        { anbieter: 'GE·BE·IN', tarif: 'Sterbegeld 85', beitrag: 29.90, wartezeit: 24, gesundheit: 'Nein', maxSumme: 15000, unfall: '1x', bewertung: 4.4, isErgo: false },
+                        { anbieter: 'die Bayerische', tarif: 'Komfort', beitrag: 38.04, wartezeit: 18, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.5, isErgo: false },
+                        { anbieter: 'Nürnberger', tarif: '2.1', beitrag: 38.62, wartezeit: 24, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.3, isErgo: false },
+                        { anbieter: 'HanseMerkur', tarif: 'Sterbegeld', beitrag: 39.49, wartezeit: 36, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.2, isErgo: false },
+                        { anbieter: 'HUK-COBURG', tarif: 'Sterbegeld', beitrag: 37.61, wartezeit: 36, gesundheit: 'Nein', maxSumme: 15000, unfall: '1x', bewertung: 4.1, isErgo: false },
+                        { anbieter: 'R+V', tarif: 'Basis', beitrag: 40.37, wartezeit: 24, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.2, isErgo: false },
+                        { anbieter: 'LVM', tarif: 'Sterbegeld', beitrag: 37.17, wartezeit: 24, gesundheit: 'Nein', maxSumme: 20000, unfall: '1x', bewertung: 4.3, isErgo: false },
+                        { anbieter: 'Volkswohl Bund', tarif: 'VB', beitrag: 37.46, wartezeit: 24, gesundheit: 'Nein', maxSumme: 15000, unfall: '2x', bewertung: 4.3, isErgo: false }
+                    ]
+                }
+            },
+            zahnzusatz: {
+                name: 'Zahnzusatzversicherung',
+                type: 'monthly',
+                filters: {
+                    alter: { label: 'Alter', options: [30, 50], default: 30 }
+                },
+                columns: ['Anbieter', 'Tarif', 'Beitrag/Monat', 'Zahnersatz%', 'Zahnbehandlung%', 'Prophylaxe', 'Wartezeit', 'Testurteil'],
+                defaultSort: 'Beitrag/Monat',
+                data: {
+                    30: [
+                        { anbieter: 'ERGO', tarif: 'Kombi ZAB+ZAE+ZBB', beitrag: 18.50, zahnersatz: 90, zahnbehandlung: 100, prophylaxe: '60€/J', wartezeit: '3-8 Mon', testurteil: 'WaizmannW. 73%', isErgo: true },
+                        { anbieter: 'DFV', tarif: 'Exklusiv 100', beitrag: 26.50, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: '200€/J', wartezeit: 'Keine', testurteil: 'Note 0,5', isErgo: false },
+                        { anbieter: 'Hallesche', tarif: 'GIGA.Dent 100', beitrag: 23.90, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: '160€/J', wartezeit: 'Keine', testurteil: 'Note 0,6', isErgo: false },
+                        { anbieter: 'Barmenia', tarif: 'Mehr Zahn 100', beitrag: 22.00, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: '200€/J', wartezeit: 'Keine', testurteil: 'Note 0,5', isErgo: false },
+                        { anbieter: 'Münchener Verein', tarif: 'ZahnGesund 100', beitrag: 12.00, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: '120€/J', wartezeit: 'Keine', testurteil: 'Note 0,5', isErgo: false },
+                        { anbieter: 'die Bayerische', tarif: 'ZAHN Prestige', beitrag: 20.00, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: '200€/J', wartezeit: 'Keine', testurteil: 'Note 0,5', isErgo: false },
+                        { anbieter: 'HanseMerkur', tarif: 'EZL', beitrag: 25.00, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: 'Unbegrenzt', wartezeit: 'Keine', testurteil: 'Note 0,6', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'MeinZahn 90', beitrag: 15.89, zahnersatz: 90, zahnbehandlung: 90, prophylaxe: '150€/J', wartezeit: 'Keine', testurteil: 'Note 1,3', isErgo: false },
+                        { anbieter: 'Württembergische', tarif: 'ZahnSchutz Prem.', beitrag: 10.75, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: '150€/J', wartezeit: 'Keine', testurteil: 'WaizmannW. 99%', isErgo: false },
+                        { anbieter: 'Gothaer', tarif: 'MediZ Smile 85', beitrag: 5.50, zahnersatz: 85, zahnbehandlung: 85, prophylaxe: '170€/J', wartezeit: 'Keine', testurteil: 'Note 1,4', isErgo: false },
+                        { anbieter: 'ARAG', tarif: 'Z90Bonus', beitrag: 18.00, zahnersatz: 90, zahnbehandlung: 90, prophylaxe: '150€/J', wartezeit: 'Keine', testurteil: 'Note 1,4', isErgo: false },
+                        { anbieter: 'Continentale', tarif: 'CEZPu', beitrag: 16.00, zahnersatz: 90, zahnbehandlung: 90, prophylaxe: '150€/J', wartezeit: 'Keine', testurteil: 'Note 1,3', isErgo: false },
+                        { anbieter: 'Signal Iduna', tarif: 'ZahnPlus', beitrag: 15.00, zahnersatz: 90, zahnbehandlung: 90, prophylaxe: '150€/J', wartezeit: 'Keine', testurteil: 'Note 1,8', isErgo: false },
+                        { anbieter: 'Alte Oldenburger', tarif: 'ZE80+ZB90', beitrag: 21.17, zahnersatz: 80, zahnbehandlung: 90, prophylaxe: '50€/J', wartezeit: '3-8 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Envivas', tarif: 'ZahnFlex MAX', beitrag: 20.00, zahnersatz: 90, zahnbehandlung: 90, prophylaxe: '150€/J', wartezeit: 'Keine', testurteil: 'Note 1,2', isErgo: false },
+                        { anbieter: 'SDK', tarif: 'Ambulant 70', beitrag: 14.00, zahnersatz: 70, zahnbehandlung: 70, prophylaxe: '100€/J', wartezeit: 'Variabel', testurteil: 'Gut', isErgo: false }
+                    ],
+                    50: [
+                        { anbieter: 'ERGO', tarif: 'Kombi ZAB+ZAE+ZBB', beitrag: 32.90, zahnersatz: 90, zahnbehandlung: 100, prophylaxe: '60€/J', wartezeit: '3-8 Mon', testurteil: 'WaizmannW. 73%', isErgo: true },
+                        { anbieter: 'DFV', tarif: 'Exklusiv 100', beitrag: 45.50, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: 'Unbegrenzt', wartezeit: 'Keine', testurteil: 'Note 0,5', isErgo: false },
+                        { anbieter: 'Hallesche', tarif: 'GIGA.Dent 100', beitrag: 39.90, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: '160€/J', wartezeit: 'Keine', testurteil: 'Note 0,8', isErgo: false },
+                        { anbieter: 'Barmenia', tarif: 'Mehr Zahn 100', beitrag: 41.20, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: '200€/J', wartezeit: '2-4 J gestaffelt', testurteil: 'Note 0,5', isErgo: false },
+                        { anbieter: 'Münchener Verein', tarif: 'ZahnGesund 100', beitrag: 55.90, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: '200€/J', wartezeit: 'Keine', testurteil: 'Note 0,5', isErgo: false },
+                        { anbieter: 'die Bayerische', tarif: 'ZAHN Prestige', beitrag: 35.60, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: '200€/J', wartezeit: 'Keine', testurteil: 'Note 0,5', isErgo: false },
+                        { anbieter: 'HanseMerkur', tarif: 'EZL', beitrag: 35.00, zahnersatz: 100, zahnbehandlung: 100, prophylaxe: 'Unbegrenzt', wartezeit: 'Keine', testurteil: 'Note 0,6', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'MeinZahn 90', beitrag: 31.56, zahnersatz: 90, zahnbehandlung: 100, prophylaxe: 'Unbegrenzt', wartezeit: 'Keine', testurteil: 'Note 1,3', isErgo: false },
+                        { anbieter: 'Württembergische', tarif: 'ZE90+ZBPlus', beitrag: 33.24, zahnersatz: 90, zahnbehandlung: 100, prophylaxe: '100€/J', wartezeit: '8 J gestaffelt', testurteil: 'WaizmannW. 99%', isErgo: false },
+                        { anbieter: 'Gothaer', tarif: 'MediZ Smile 85', beitrag: 23.70, zahnersatz: 85, zahnbehandlung: 100, prophylaxe: '170€/J', wartezeit: 'Keine', testurteil: 'Note 1,4', isErgo: false },
+                        { anbieter: 'ARAG', tarif: 'Z90Bonus', beitrag: 32.11, zahnersatz: 90, zahnbehandlung: 90, prophylaxe: 'Gestaffelt', wartezeit: 'Zahnbefund erf.', testurteil: 'Note 1,4', isErgo: false },
+                        { anbieter: 'Continentale', tarif: 'CEZP-U', beitrag: 30.76, zahnersatz: 85, zahnbehandlung: 100, prophylaxe: '75€/J', wartezeit: '8 J gestaffelt', testurteil: 'WaizmannW. 86%', isErgo: false },
+                        { anbieter: 'Signal Iduna', tarif: 'ZahnPLUS', beitrag: 16.42, zahnersatz: 70, zahnbehandlung: 70, prophylaxe: '105€/J', wartezeit: '3 Jahre', testurteil: 'Note 1,8', isErgo: false },
+                        { anbieter: 'SDK', tarif: 'Zahn 50', beitrag: 8.02, zahnersatz: 50, zahnbehandlung: 50, prophylaxe: '50€/J', wartezeit: 'Keine', testurteil: 'Basis', isErgo: false },
+                        { anbieter: 'Envivas', tarif: 'ZahnFlex MAX', beitrag: 35.60, zahnersatz: 90, zahnbehandlung: 90, prophylaxe: '150€/J', wartezeit: 'Keine', testurteil: 'Note 1,2', isErgo: false }
+                    ]
+                }
+            },
+            krankenhaus: {
+                name: 'Krankenhauszusatzversicherung',
+                type: 'monthly',
+                filters: {
+                    zimmer: { label: 'Zimmer', options: ['Einbett', 'Zweibett'], default: 'Einbett' }
+                },
+                columns: ['Anbieter', 'Tarif', 'Beitrag/Monat', 'Chefarzt', 'Zimmer', 'Rooming-In', 'Altersrückst.', 'Wartezeit', 'Testurteil'],
+                defaultSort: 'Beitrag/Monat',
+                data: {
+                    'Einbett': [
+                        { anbieter: 'ERGO', tarif: 'SZS', beitrag: 27.70, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Nein', wartezeit: '3 Mon', testurteil: 'Empfohlen', isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'SZL', beitrag: 35.00, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Empfohlen', isErgo: true },
+                        { anbieter: 'DKV', tarif: 'UZ1', beitrag: 12.28, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Nein', wartezeit: 'Keine', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Debeka', tarif: 'WKplus', beitrag: 38.00, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Note 0,9', isErgo: false },
+                        { anbieter: 'ARAG', tarif: '261', beitrag: 38.28, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Sehr gut', isErgo: false },
+                        { anbieter: 'Hallesche', tarif: 'Mega Clinic AR', beitrag: 45.80, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: 'Keine', testurteil: 'Empfohlen', isErgo: false },
+                        { anbieter: 'Münchener Verein', tarif: 'Premium', beitrag: 18.00, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Nein', wartezeit: 'Keine', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Continentale', tarif: 'SG1', beitrag: 28.00, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'HanseMerkur', tarif: 'Stationär', beitrag: 26.00, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Nein', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'Stationär', beitrag: 32.00, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'AXA', tarif: 'Premium Plus', beitrag: 34.00, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Signal Iduna', tarif: 'Stationär', beitrag: 25.00, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Nein', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Gothaer', tarif: 'MediClinic Prem.', beitrag: 49.74, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'SDK', tarif: 'SP1', beitrag: 30.00, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Empfohlen', isErgo: false },
+                        { anbieter: 'Alte Oldenburger', tarif: 'K50', beitrag: 26.50, chefarzt: 'Ja', zimmer: 'Einbett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false }
+                    ],
+                    'Zweibett': [
+                        { anbieter: 'ERGO', tarif: 'SZS', beitrag: 20.78, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Nein', wartezeit: '3 Mon', testurteil: 'Empfohlen', isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'SZL', beitrag: 26.25, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Empfohlen', isErgo: true },
+                        { anbieter: 'DKV', tarif: 'UZ2', beitrag: 5.39, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Nein', wartezeit: 'Keine', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Debeka', tarif: 'WK 2-Bett', beitrag: 28.50, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Note 0,9', isErgo: false },
+                        { anbieter: 'ARAG', tarif: '262', beitrag: 28.71, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Sehr gut', isErgo: false },
+                        { anbieter: 'Hallesche', tarif: 'Mega Clinic AR', beitrag: 34.35, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: 'Keine', testurteil: 'Empfohlen', isErgo: false },
+                        { anbieter: 'Münchener Verein', tarif: 'Komfort', beitrag: 13.50, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Nein', wartezeit: 'Keine', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Continentale', tarif: 'SG2', beitrag: 21.00, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'HanseMerkur', tarif: 'Stationär 2B', beitrag: 19.50, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Nein', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'Stationär 2B', beitrag: 24.00, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Signal Iduna', tarif: 'KlinikTOP 2B', beitrag: 18.75, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Nein', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'Gothaer', tarif: 'MediClinic Prem.', beitrag: 37.31, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false },
+                        { anbieter: 'SDK', tarif: 'SP2', beitrag: 39.38, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Leistungssieger', isErgo: false },
+                        { anbieter: 'Alte Oldenburger', tarif: 'K50 2B', beitrag: 19.88, chefarzt: 'Ja', zimmer: 'Zweibett', rooming: 'Ja', altersRueckst: 'Ja', wartezeit: '3 Mon', testurteil: 'Gut', isErgo: false }
+                    ]
+                }
+            },
+            wohngebaude: {
+                name: 'Wohngebäudeversicherung',
+                type: 'annual',
+                filters: {
+                    region: { label: 'Region', options: ['Hamburg', 'München'], default: 'Hamburg' }
+                },
+                columns: ['Anbieter', 'Tarif', 'Jahresbeitrag', 'Elementar', 'Grobe Fahrl.', 'Untervers.verzicht', 'Ableitungsrohre', 'Überspannung', 'Testurteil'],
+                defaultSort: 'Jahresbeitrag',
+                data: {
+                    'Hamburg': [
+                        { anbieter: 'ERGO', tarif: 'Smart', beitrag: 350, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Fair', isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Best', beitrag: 480, elementar: 'Inklusive', grobeFahrl: 'Ja unbegr.', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Fair', isErgo: true },
+                        { anbieter: 'CosmosDirekt', tarif: 'Basis', beitrag: 210, elementar: 'Optional', grobeFahrl: 'Ja bis 50k', unterversV: 'Ja', ableit: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'InterRisk', tarif: 'XXL', beitrag: 290, elementar: 'Inklusive', grobeFahrl: 'Ja unbegr.', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Testsieger', isErgo: false },
+                        { anbieter: 'Gothaer', tarif: 'Basis', beitrag: 300, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'HUK-COBURG', tarif: 'Optimal', beitrag: 310, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'GEV', tarif: 'Home Max', beitrag: 320, elementar: 'Inklusive', grobeFahrl: 'Ja unbegr.', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: '3x Testsieger', isErgo: false },
+                        { anbieter: 'DEVK', tarif: 'Komfort', beitrag: 320, elementar: 'Inklusive', grobeFahrl: 'Ja unbegr.', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Debeka', tarif: 'Comfort+', beitrag: 335, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'VHV', tarif: 'Klassik', beitrag: 340, elementar: 'Inklusive', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'LVM', tarif: 'Komfort', beitrag: 340, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'HDI', tarif: 'Komfort', beitrag: 355, elementar: 'Inklusive', grobeFahrl: 'Ja unbegr.', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Provinzial', tarif: 'Standard', beitrag: 360, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Württembergische', tarif: 'Komfort', beitrag: 370, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Fair', isErgo: false },
+                        { anbieter: 'R+V', tarif: 'Top', beitrag: 380, elementar: 'Inklusive', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'FFF+', isErgo: false },
+                        { anbieter: 'Generali', tarif: 'Optimal', beitrag: 400, elementar: 'Inkl. (unlim.)', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja+PV+Glas', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'Komfort', beitrag: 420, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'AXA', tarif: 'Standard', beitrag: 530, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false }
+                    ],
+                    'München': [
+                        { anbieter: 'ERGO', tarif: 'Smart', beitrag: 413, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Fair', isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Best', beitrag: 566, elementar: 'Inklusive', grobeFahrl: 'Ja unbegr.', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Fair', isErgo: true },
+                        { anbieter: 'CosmosDirekt', tarif: 'Basis', beitrag: 248, elementar: 'Optional', grobeFahrl: 'Ja bis 50k', unterversV: 'Ja', ableit: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'InterRisk', tarif: 'XXL', beitrag: 342, elementar: 'Inklusive', grobeFahrl: 'Ja unbegr.', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Testsieger', isErgo: false },
+                        { anbieter: 'Gothaer', tarif: 'Basis', beitrag: 354, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'HUK-COBURG', tarif: 'Optimal', beitrag: 366, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'GEV', tarif: 'Home Max', beitrag: 378, elementar: 'Inklusive', grobeFahrl: 'Ja unbegr.', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: '3x Testsieger', isErgo: false },
+                        { anbieter: 'DEVK', tarif: 'Komfort', beitrag: 378, elementar: 'Inklusive', grobeFahrl: 'Ja unbegr.', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Debeka', tarif: 'Comfort+', beitrag: 395, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'VHV', tarif: 'Klassik', beitrag: 401, elementar: 'Inklusive', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'LVM', tarif: 'Komfort', beitrag: 401, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'HDI', tarif: 'Komfort', beitrag: 419, elementar: 'Inklusive', grobeFahrl: 'Ja unbegr.', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Provinzial', tarif: 'Standard', beitrag: 425, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Württembergische', tarif: 'Komfort', beitrag: 437, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Fair', isErgo: false },
+                        { anbieter: 'R+V', tarif: 'Top', beitrag: 449, elementar: 'Inklusive', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'FFF+', isErgo: false },
+                        { anbieter: 'Generali', tarif: 'Optimal', beitrag: 472, elementar: 'Inkl. (unlim.)', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja+PV+Glas', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'Komfort', beitrag: 496, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'AXA', tarif: 'Standard', beitrag: 625, elementar: 'Optional', grobeFahrl: 'Ja', unterversV: 'Ja', ableit: 'Ja', uebersp: 'Ja', test: 'Gut', isErgo: false }
+                    ]
+                }
+            },
+            augenzusatz: {
+                name: 'Augenzusatzversicherung',
+                type: 'monthly',
+                filters: {},
+                columns: ['Anbieter', 'Tarif', 'Beitrag/Monat', 'Brillen (2J)', 'LASIK', 'Kontaktlinsen', 'Wartezeit', 'Vorsorge'],
+                defaultSort: 'Beitrag/Monat',
+                data: [
+                    { anbieter: 'ERGO', tarif: 'Augen-Vorsorge', beitrag: 9.90, brillen: '150€', lasik: '1.000€', kontaktl: 'Ja', wartezeit: 'Keine', vorsorge: '100€/J', isErgo: true },
+                    { anbieter: 'ERGO', tarif: 'Augen-Premium', beitrag: 14.90, brillen: '300€', lasik: '1.000€', kontaktl: 'Ja', wartezeit: 'Keine', vorsorge: '200€/J', isErgo: true },
+                    { anbieter: 'DKV', tarif: 'KSHR', beitrag: 5.39, brillen: '200€', lasik: 'Variabel', kontaktl: 'Ja', wartezeit: '3 Mon', vorsorge: 'Nein', isErgo: false },
+                    { anbieter: 'HanseMerkur', tarif: 'Standard', beitrag: 7.50, brillen: '300€', lasik: 'Ja', kontaktl: 'Ja', wartezeit: '3 Mon', vorsorge: 'Nein', isErgo: false },
+                    { anbieter: 'Signal Iduna', tarif: 'Ambulant Start', beitrag: 9.00, brillen: '250€', lasik: 'Ja', kontaktl: 'Ja', wartezeit: 'Keine', vorsorge: 'Ja', isErgo: false },
+                    { anbieter: 'Envivas', tarif: 'Sehhilfen', beitrag: 11.00, brillen: '250€', lasik: 'Ja', kontaktl: 'Ja', wartezeit: 'Keine', vorsorge: 'Nein', isErgo: false },
+                    { anbieter: 'SDK', tarif: 'Ambulant 70', beitrag: 12.00, brillen: '300€', lasik: 'Ja', kontaktl: 'Ja', wartezeit: 'Variabel', vorsorge: 'Ja', isErgo: false },
+                    { anbieter: 'Barmenia', tarif: 'Mehr Sehen', beitrag: 12.90, brillen: '300€', lasik: '1.000€', kontaktl: 'Ja', wartezeit: 'Keine', vorsorge: '100%', isErgo: false },
+                    { anbieter: 'ARAG', tarif: 'Brillen', beitrag: 13.00, brillen: '300€', lasik: '1.000€', kontaktl: 'Ja', wartezeit: '3 Mon', vorsorge: 'Ja', isErgo: false },
+                    { anbieter: 'Signal Iduna', tarif: 'Ambulant Plus', beitrag: 13.00, brillen: '375€', lasik: '1.000€', kontaktl: 'Ja', wartezeit: 'Keine', vorsorge: 'Ja', isErgo: false },
+                    { anbieter: 'Nürnberger', tarif: 'Sehen&Hören', beitrag: 14.00, brillen: '300€', lasik: '1.500€', kontaktl: 'Ja', wartezeit: '3 Mon', vorsorge: 'Ja', isErgo: false },
+                    { anbieter: 'UKV', tarif: 'VorsorgePrivat', beitrag: 14.00, brillen: '400€', lasik: '1.500€', kontaktl: 'Ja', wartezeit: 'Variabel', vorsorge: 'Ja', isErgo: false },
+                    { anbieter: 'Münchener Verein', tarif: 'Sehhilfen', beitrag: 15.00, brillen: '400€', lasik: '1.600€', kontaktl: 'Ja', wartezeit: '3 Mon', vorsorge: 'Ja', isErgo: false },
+                    { anbieter: 'Allianz', tarif: 'Sehhilfen', beitrag: 16.00, brillen: '300€', lasik: 'Ja', kontaktl: 'Ja', wartezeit: 'Variabel', vorsorge: 'Ja', isErgo: false },
+                    { anbieter: 'AXA', tarif: 'MED Komfort', beitrag: 22.00, brillen: '300€', lasik: '1.000€', kontaktl: 'Ja', wartezeit: '3 Mon', vorsorge: 'Ja', isErgo: false }
+                ]
+            },
+            rechtsschutz: {
+                name: 'Rechtsschutzversicherung',
+                type: 'annual',
+                filters: {
+                    versnehmer: { label: 'Versicherungsnehmer', options: ['Single', 'Familie'], default: 'Single' }
+                },
+                columns: ['Anbieter', 'Tarif', 'Jahresbeitrag', 'Deckungssumme', 'Selbstbeteiligung', 'Wartezeit', 'Mediation', 'Online-Beratung', 'Testurteil'],
+                defaultSort: 'Jahresbeitrag',
+                data: {
+                    'Single': [
+                        { anbieter: 'ERGO', tarif: 'Komfort', beitrag: 443, deckung: 'Unbegrenzt', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Premium', beitrag: 479, deckung: 'Unbegrenzt', selbstbet: '0€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja 24/7', test: 'Sehr gut', isErgo: true },
+                        { anbieter: 'HUK-COBURG', tarif: 'PBV Plus', beitrag: 202, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Testsieger', isErgo: false },
+                        { anbieter: 'WGV', tarif: 'PBV Optimal', beitrag: 240, deckung: '1 Mio€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'ADAC', tarif: 'Privat+Beruf+Verk.', beitrag: 254, deckung: '500.000€', selbstbet: '150€', wartezeit: '0 Mon (Verk)', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'ARAG', tarif: 'Komfort', beitrag: 343, deckung: '1 Mio€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'Concordia', tarif: 'Sorglos', beitrag: 280, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Nein', test: 'Gut', isErgo: false },
+                        { anbieter: 'DEVK', tarif: 'Standard', beitrag: 331, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'Smart', beitrag: 248, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'Komfort', beitrag: 380, deckung: '1 Mio€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'Roland', tarif: 'Komfort', beitrag: 425, deckung: '1 Mio€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Fair 7x', isErgo: false },
+                        { anbieter: 'DAS', tarif: 'Premium', beitrag: 400, deckung: 'Unbegrenzt', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Premium', isErgo: false },
+                        { anbieter: 'R+V', tarif: 'Standard', beitrag: 360, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Gothaer', tarif: 'Komfort', beitrag: 340, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Advocard', tarif: 'Standard', beitrag: 320, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja (tel.)', test: 'Gut', isErgo: false },
+                        { anbieter: 'ÖRAG', tarif: 'Komfort', beitrag: 310, deckung: '500.000€', selbstbet: '250€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Nein', test: 'Fair Testsieger', isErgo: false },
+                        { anbieter: 'HDI', tarif: 'Standard', beitrag: 350, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'LVM', tarif: 'Standard', beitrag: 330, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: false }
+                    ],
+                    'Familie': [
+                        { anbieter: 'ERGO', tarif: 'Komfort', beitrag: 532, deckung: 'Unbegrenzt', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Premium', beitrag: 575, deckung: 'Unbegrenzt', selbstbet: '0€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja 24/7', test: 'Sehr gut', isErgo: true },
+                        { anbieter: 'HUK-COBURG', tarif: 'PBV Plus', beitrag: 217, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Testsieger', isErgo: false },
+                        { anbieter: 'WGV', tarif: 'PBV Optimal', beitrag: 343, deckung: '1 Mio€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'ADAC', tarif: 'Familie PBV', beitrag: 305, deckung: '500.000€', selbstbet: '150€', wartezeit: '0 Mon (Verk)', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'ARAG', tarif: 'Komfort Familie', beitrag: 450, deckung: '1 Mio€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'Concordia', tarif: 'Sorglos', beitrag: 277, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Nein', test: 'Gut', isErgo: false },
+                        { anbieter: 'DEVK', tarif: 'Standard', beitrag: 397, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'Smart', beitrag: 298, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'Komfort', beitrag: 456, deckung: '1 Mio€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Sehr gut', isErgo: false },
+                        { anbieter: 'Roland', tarif: 'Komfort', beitrag: 510, deckung: '1 Mio€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Fair 7x', isErgo: false },
+                        { anbieter: 'DAS', tarif: 'Premium', beitrag: 480, deckung: 'Unbegrenzt', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Premium', isErgo: false },
+                        { anbieter: 'R+V', tarif: 'Standard', beitrag: 432, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Gothaer', tarif: 'Komfort', beitrag: 408, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Advocard', tarif: 'Standard', beitrag: 384, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja (tel.)', test: 'Gut', isErgo: false },
+                        { anbieter: 'ÖRAG', tarif: 'Komfort', beitrag: 372, deckung: '500.000€', selbstbet: '250€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Nein', test: 'Fair Testsieger', isErgo: false },
+                        { anbieter: 'HDI', tarif: 'Standard', beitrag: 420, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'LVM', tarif: 'Standard', beitrag: 396, deckung: '500.000€', selbstbet: '150€', wartezeit: '3 Mon', mediation: 'Ja', onlineBeratung: 'Ja', test: 'Gut', isErgo: false }
+                    ]
+                }
+            },
+            hausrat: {
+                name: 'Hausratversicherung',
+                type: 'annual',
+                filters: {
+                    region: { label: 'Region', options: ['Hamburg', 'München'], default: 'Hamburg' }
+                },
+                columns: ['Anbieter', 'Tarif', 'Jahresbeitrag', 'Grobe Fahrl.', 'Untervers.verzicht', 'Fahrrad', 'Glasbruch', 'Elementar', 'Überspannung', 'Testurteil'],
+                defaultSort: 'Jahresbeitrag',
+                data: {
+                    'Hamburg': [
+                        { anbieter: 'ERGO', tarif: 'Smart', beitrag: 155, grobeFahrl: 'Nein', unterversV: 'Nein', fahrrad: '1.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Optional', test: 'Fair', isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Top', beitrag: 195, grobeFahrl: 'Nein', unterversV: 'Ja', fahrrad: '1.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Fair', isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Premium', beitrag: 245, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Fair', isErgo: true },
+                        { anbieter: 'DEVK', tarif: 'Komfort', beitrag: 100, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'VHV', tarif: 'Klassik', beitrag: 115, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '2.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Ammerländer', tarif: 'Premium', beitrag: 125, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Testsieger', isErgo: false },
+                        { anbieter: 'CosmosDirekt', tarif: 'Komfort', beitrag: 130, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '2.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Württembergische', tarif: 'Komfort', beitrag: 140, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Fair', isErgo: false },
+                        { anbieter: 'HUK-COBURG', tarif: 'Optimal', beitrag: 145, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Testsieger P/L', isErgo: false },
+                        { anbieter: 'Gothaer', tarif: 'Premium', beitrag: 150, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Testsieger F&B', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'Komfort', beitrag: 170, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '10.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Top Image', isErgo: false },
+                        { anbieter: 'Adam Riese', tarif: 'Premium', beitrag: 135, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'F&B Top', isErgo: false },
+                        { anbieter: 'InterRisk', tarif: 'XXL', beitrag: 130, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Testsieger', isErgo: false },
+                        { anbieter: 'R+V', tarif: 'Komfort', beitrag: 160, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'HDI', tarif: 'Komfort', beitrag: 155, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'LVM', tarif: 'Komfort', beitrag: 150, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'AXA', tarif: 'M', beitrag: 165, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Generali', tarif: 'Optimal', beitrag: 175, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Provinzial', tarif: 'Komfort', beitrag: 155, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Debeka', tarif: 'Komfort', beitrag: 148, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false }
+                    ],
+                    'München': [
+                        { anbieter: 'ERGO', tarif: 'Smart', beitrag: 126, grobeFahrl: 'Nein', unterversV: 'Nein', fahrrad: '1.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Optional', test: 'Fair', isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Top', beitrag: 158, grobeFahrl: 'Nein', unterversV: 'Ja', fahrrad: '1.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Fair', isErgo: true },
+                        { anbieter: 'ERGO', tarif: 'Premium', beitrag: 199, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Fair', isErgo: true },
+                        { anbieter: 'DEVK', tarif: 'Komfort', beitrag: 81, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'VHV', tarif: 'Klassik', beitrag: 93, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '2.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Ammerländer', tarif: 'Premium', beitrag: 101, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Testsieger', isErgo: false },
+                        { anbieter: 'CosmosDirekt', tarif: 'Komfort', beitrag: 105, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '2.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Gothaer', tarif: 'Premium', beitrag: 102, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Testsieger F&B', isErgo: false },
+                        { anbieter: 'HUK-COBURG', tarif: 'Optimal', beitrag: 117, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Testsieger P/L', isErgo: false },
+                        { anbieter: 'Allianz', tarif: 'Komfort', beitrag: 138, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '10.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Top Image', isErgo: false },
+                        { anbieter: 'Adam Riese', tarif: 'Premium', beitrag: 109, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'F&B Top', isErgo: false },
+                        { anbieter: 'InterRisk', tarif: 'XXL', beitrag: 105, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Testsieger', isErgo: false },
+                        { anbieter: 'R+V', tarif: 'Komfort', beitrag: 130, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'HDI', tarif: 'Komfort', beitrag: 126, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'LVM', tarif: 'Komfort', beitrag: 122, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'AXA', tarif: 'M', beitrag: 134, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Generali', tarif: 'Optimal', beitrag: 142, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '5.000€', glas: 'Inklusive', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false },
+                        { anbieter: 'Debeka', tarif: 'Komfort', beitrag: 120, grobeFahrl: 'Ja', unterversV: 'Ja', fahrrad: '3.000€', glas: 'Optional', elementar: 'Optional', uebersp: 'Ja', test: 'Gut', isErgo: false }
+                    ]
+                }
+            }
+            };
+        }
+
+        let currentProduct = 'sterbegeld';
+        let currentFilters = {};
+        let currentData = [];
+        let sortState = { column: null, direction: 'asc' };
+
+        function getFilterValues() {
+            const product = PRODUCTS[currentProduct];
+            const filters = {};
+            for (const [key, config] of Object.entries(product.filters || {})) {
+                const select = document.getElementById(`filter-${key}`);
+                if (select) {
+                    filters[key] = select.value;
+                }
+            }
+            return filters;
+        }
+
+        function renderFilterBar() {
+            const product = PRODUCTS[currentProduct];
+            const filterBar = document.getElementById('filterBar');
+            filterBar.innerHTML = '';
+
+            const productGroup = document.createElement('div');
+            productGroup.className = 'filter-group';
+            productGroup.innerHTML = `
+                <label>Produkt</label>
+                <select id="productSelector" onchange="switchProduct()">
+                    ${Object.entries(PRODUCTS).map(([key, prod]) =>
+                        `<option value="${key}" ${key === currentProduct ? 'selected' : ''}>${prod.name}</option>`
+                    ).join('')}
+                </select>
+            `;
+            filterBar.appendChild(productGroup);
+
+            for (const [key, config] of Object.entries(product.filters || {})) {
+                const group = document.createElement('div');
+                group.className = 'filter-group';
+                group.innerHTML = `
+                    <label>${config.label}</label>
+                    <select id="filter-${key}" onchange="updateDashboard()">
+                        ${config.options.map(opt =>
+                            `<option value="${opt}" ${opt == config.default ? 'selected' : ''}>${opt}</option>`
+                        ).join('')}
+                    </select>
+                `;
+                filterBar.appendChild(group);
+            }
+        }
+
+        function getProductData() {
+            const product = PRODUCTS[currentProduct];
+            const filters = getFilterValues();
+
+            if (currentProduct === 'sterbegeld') {
+                const alter = parseInt(filters.alter);
+                let data = product.data[alter] || [];
+
+                const gesundheit = filters.gesundheit;
+                if (gesundheit && gesundheit !== 'Alle') {
+                    data = data.filter(row => {
+                        if (gesundheit === 'Ohne Gesundheitsfragen') return row.gesundheit === 'Nein';
+                        if (gesundheit === 'Mit Gesundheitsfragen') return row.gesundheit === 'Ja';
+                        return true;
+                    });
+                }
+                return data;
+            } else if (currentProduct === 'zahnzusatz') {
+                const alter = parseInt(filters.alter);
+                return product.data[alter] || [];
+            } else if (currentProduct === 'krankenhaus') {
+                const zimmer = filters.zimmer;
+                return product.data[zimmer] || [];
+            } else if (currentProduct === 'wohngebaude' || currentProduct === 'hausrat') {
+                const region = filters.region;
+                return product.data[region] || [];
+            } else if (currentProduct === 'rechtsschutz') {
+                const versnehmer = filters.versnehmer;
+                return product.data[versnehmer] || [];
+            } else if (currentProduct === 'augenzusatz') {
+                return product.data;
+            }
+            return [];
+        }
+
+        function formatPrice(value, type) {
+            if (type === 'monthly') {
+                return `${value.toFixed(2).replace('.', ',')} €/Mon`;
+            } else {
+                return `${value} €/Jahr`;
+            }
+        }
+
+        function getWaitTimeBadgeClass(wartezeit) {
+            if (wartezeit === 'Keine' || wartezeit === 0) return 'badge-sofort';
+            const days = parseInt(wartezeit);
+            if (isNaN(days)) return 'badge-yellow';
+            if (days <= 12) return 'badge-green';
+            if (days <= 24) return 'badge-yellow';
+            return 'badge-red';
+        }
+
+        function getWaitTimeText(wartezeit) {
+            if (wartezeit === 'Keine' || wartezeit === 0) return 'Sofort';
+            return wartezeit + ' Mon';
+        }
+
+        function renderTable() {
+            const product = PRODUCTS[currentProduct];
+            const tableHead = document.getElementById('tableHead');
+            const tableBody = document.getElementById('tableBody');
+
+            tableHead.innerHTML = `
+                <tr>
+                    ${product.columns.map((col, idx) =>
+                        `<th class="sortable" onclick="sortTable('${col}', ${idx})">${col}</th>`
+                    ).join('')}
+                </tr>
+            `;
+
+            currentData = getProductData();
+            let sortedData = [...currentData];
+
+            if (sortState.column === null) {
+                const sortColName = product.defaultSort;
+                sortedData.sort((a, b) => {
+                    let aVal, bVal;
+                    if (sortColName.includes('Beitrag') || sortColName.includes('Jahresbeitrag')) {
+                        aVal = a['beitrag'] || 0;
+                        bVal = b['beitrag'] || 0;
+                    } else {
+                        aVal = 0;
+                        bVal = 0;
+                    }
+                    return aVal - bVal;
+                });
+            } else {
+                const colName = sortState.column;
+                const keyMap = {
+                    'Anbieter': 'anbieter',
+                    'Tarif': 'tarif',
+                    'Beitrag/Monat': 'beitrag',
+                    'Jahresbeitrag': 'beitrag',
+                    'Wartezeit': 'wartezeit',
+                    'Gesundheitsf.': 'gesundheit',
+                    'Max. Summe': 'maxSumme',
+                    'Unfalltod': 'unfall',
+                    'Bewertung': 'bewertung',
+                    'Zahnersatz%': 'zahnersatz',
+                    'Zahnbehandlung%': 'zahnbehandlung',
+                    'Prophylaxe': 'prophylaxe',
+                    'Testurteil': 'testurteil',
+                    'Chefarzt': 'chefarzt',
+                    'Zimmer': 'zimmer',
+                    'Rooming-In': 'rooming',
+                    'Altersrückst.': 'altersRueckst',
+                    'Elementar': 'elementar',
+                    'Grobe Fahrl.': 'grobeFahrl',
+                    'Untervers.verzicht': 'unterversV',
+                    'Ableitungsrohre': 'ableit',
+                    'Überspannung': 'uebersp',
+                    'Brillen (2J)': 'brillen',
+                    'LASIK': 'lasik',
+                    'Kontaktlinsen': 'kontaktl',
+                    'Vorsorge': 'vorsorge',
+                    'Deckungssumme': 'deckung',
+                    'Selbstbeteiligung': 'selbstbet',
+                    'Mediation': 'mediation',
+                    'Online-Beratung': 'onlineBeratung',
+                    'Fahrrad': 'fahrrad',
+                    'Glasbruch': 'glas'
+                };
+                const key = keyMap[colName];
+                if (key) {
+                    sortedData.sort((a, b) => {
+                        let aVal = a[key] || '';
+                        let bVal = b[key] || '';
+                        if (typeof aVal === 'number' && typeof bVal === 'number') {
+                            return sortState.direction === 'asc' ? aVal - bVal : bVal - aVal;
+                        }
+                        const cmp = String(aVal).localeCompare(String(bVal));
+                        return sortState.direction === 'asc' ? cmp : -cmp;
+                    });
+                }
+            }
+
+            tableBody.innerHTML = sortedData.map(row => {
+                const cells = product.columns.map(col => {
+                    const keyMap = {
+                        'Anbieter': 'anbieter',
+                        'Tarif': 'tarif',
+                        'Beitrag/Monat': 'beitrag',
+                        'Jahresbeitrag': 'beitrag',
+                        'Wartezeit': 'wartezeit',
+                        'Gesundheitsf.': 'gesundheit',
+                        'Max. Summe': 'maxSumme',
+                        'Unfalltod': 'unfall',
+                        'Bewertung': 'bewertung',
+                        'Zahnersatz%': 'zahnersatz',
+                        'Zahnbehandlung%': 'zahnbehandlung',
+                        'Prophylaxe': 'prophylaxe',
+                        'Testurteil': 'testurteil',
+                        'Chefarzt': 'chefarzt',
+                        'Zimmer': 'zimmer',
+                        'Rooming-In': 'rooming',
+                        'Altersrückst.': 'altersRueckst',
+                        'Elementar': 'elementar',
+                        'Grobe Fahrl.': 'grobeFahrl',
+                        'Untervers.verzicht': 'unterversV',
+                        'Ableitungsrohre': 'ableit',
+                        'Überspannung': 'uebersp',
+                        'Brillen (2J)': 'brillen',
+                        'LASIK': 'lasik',
+                        'Kontaktlinsen': 'kontaktl',
+                        'Vorsorge': 'vorsorge',
+                        'Deckungssumme': 'deckung',
+                        'Selbstbeteiligung': 'selbstbet',
+                        'Mediation': 'mediation',
+                        'Online-Beratung': 'onlineBeratung',
+                        'Fahrrad': 'fahrrad',
+                        'Glasbruch': 'glas'
+                    };
+                    const key = keyMap[col];
+                    let value = row[key] || '';
+
+                    if (col === 'Beitrag/Monat') {
+                        value = `<span class="price">${formatPrice(value, 'monthly')}</span>`;
+                    } else if (col === 'Jahresbeitrag') {
+                        value = `<span class="price">${formatPrice(value, 'annual')}</span>`;
+                    } else if (col === 'Wartezeit') {
+                        const badgeClass = getWaitTimeBadgeClass(value);
+                        value = `<span class="badge ${badgeClass}">${getWaitTimeText(value)}</span>`;
+                    } else if (col === 'Gesundheitsf.') {
+                        const badgeClass = value === 'Nein' ? 'badge-green' : 'badge-blue';
+                        value = `<span class="badge ${badgeClass}">${value}</span>`;
+                    } else if (col.includes('Bewertung') || col.includes('Testurteil')) {
+                        value = `<span class="rating">${value}</span>`;
+                    }
+
+                    return `<td>${value}</td>`;
+                }).join('');
+
+                return `<tr class="${row.isErgo ? 'ergo-row' : ''}">${cells}</tr>`;
+            }).join('');
+        }
+
+        function sortTable(colName, colIdx) {
+            if (sortState.column === colName) {
+                sortState.direction = sortState.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortState.column = colName;
+                sortState.direction = 'asc';
+            }
+            renderTable();
+        }
+
+        function renderKPIs() {
+            const product = PRODUCTS[currentProduct];
+            const data = getProductData();
+            const kpiContainer = document.getElementById('kpiContainer');
+
+            if (data.length === 0) {
+                kpiContainer.innerHTML = '<div class="no-data">Keine Daten verfügbar</div>';
+                return;
+            }
+
+            const prices = data.map(row => row.beitrag).filter(p => typeof p === 'number');
+            const ergoData = data.find(row => row.isErgo);
+            const ergoPrice = ergoData ? ergoData.beitrag : 'N/A';
+            const minPrice = Math.min(...prices);
+            const avgPrice = (prices.reduce((a, b) => a + b, 0) / prices.length).toFixed(2);
+            const ergoRank = prices.length > 0 ? data.filter(row => row.beitrag <= ergoPrice).length : 'N/A';
+
+            kpiContainer.innerHTML = `
+                <div class="kpi-card">
+                    <div class="kpi-label">ERGO Preis</div>
+                    <div class="kpi-value">${typeof ergoPrice === 'number' ? formatPrice(ergoPrice, product.type) : ergoPrice}</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Günstigster Anbieter</div>
+                    <div class="kpi-value">${formatPrice(minPrice, product.type)}</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Marktdurchschnitt</div>
+                    <div class="kpi-value">${formatPrice(parseFloat(avgPrice), product.type)}</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">ERGO Ranking</div>
+                    <div class="kpi-value">${ergoRank} von ${data.length}</div>
+                </div>
+            `;
+        }
+
+        function renderChart() {
+            const product = PRODUCTS[currentProduct];
+            const data = getProductData();
+
+            if (data.length === 0) {
+                document.getElementById('comparisonChart').style.display = 'none';
+                return;
+            }
+
+            const chartData = data.slice(0, 18);
+            const labels = chartData.map(row => row.anbieter + ' - ' + row.tarif);
+            const prices = chartData.map(row => row.beitrag);
+            const colors = chartData.map(row => row.isErgo ? 'rgba(227, 6, 19, 0.75)' : 'rgba(59, 130, 246, 0.5)');
+
+            const ctx = document.getElementById('comparisonChart');
+
+            if (window.comparisonChartInstance) {
+                window.comparisonChartInstance.destroy();
+            }
+
+            window.comparisonChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: product.type === 'monthly' ? 'Beitrag/Monat' : 'Jahresbeitrag',
+                        data: prices,
+                        backgroundColor: colors,
+                        borderColor: colors,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return product.type === 'monthly' ? value.toFixed(2) + '€' : value + '€';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function switchProduct() {
+            const selector = document.getElementById('productSelector');
+            currentProduct = selector.value;
+            sortState = { column: null, direction: 'asc' };
+            renderFilterBar();
+            updateDashboard();
+        }
+
+        function updateDashboard() {
+            renderTable();
+            renderKPIs();
+            renderChart();
+        }
+
+        function openUpdateModal() {
+            document.getElementById('updateModal').classList.add('active');
+        }
+
+        function closeUpdateModal() {
+            document.getElementById('updateModal').classList.remove('active');
+        }
+
+        async function triggerCrawl() {
+            const btn = document.querySelector('.modal-actions .btn-primary');
+            const origText = btn.textContent;
+            btn.textContent = 'Wird gestartet...';
+            btn.disabled = true;
+
+            try {
+                // Versuche GitHub Action zu triggern
+                const token = localStorage.getItem('gh_pat') || '';
+                if (!token) {
+                    // Zeige Token-Eingabe
+                    const pat = prompt('GitHub Personal Access Token eingeben (wird lokal gespeichert):');
+                    if (pat) {
+                        localStorage.setItem('gh_pat', pat);
+                        await dispatchWorkflow(pat);
+                    } else {
+                        alert('Ohne Token kann die Aktualisierung nicht gestartet werden.');
+                    }
+                } else {
+                    await dispatchWorkflow(token);
+                }
+            } catch(e) {
+                alert('Fehler: ' + e.message + '\n\nAlternativ: \u00d6ffne Claude Cowork und sage "Bitte aktualisiere die Wettbewerbsdaten".');
+            }
+
+            btn.textContent = origText;
+            btn.disabled = false;
+        }
+
+        async function dispatchWorkflow(token) {
+            const resp = await fetch('https://api.github.com/repos/' + GITHUB_REPO + '/actions/workflows/' + GITHUB_ACTION_WORKFLOW + '/dispatches', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ ref: 'main' })
+            });
+            if (resp.status === 204) {
+                alert('Aktualisierung gestartet! Die neuen Daten sind in ca. 5 Minuten verf\u00fcgbar. Lade die Seite dann neu.');
+                closeUpdateModal();
+            } else if (resp.status === 401 || resp.status === 403) {
+                localStorage.removeItem('gh_pat');
+                throw new Error('Token ung\u00fcltig oder abgelaufen. Bitte erneut eingeben.');
+            } else {
+                throw new Error('GitHub API Fehler (Status ' + resp.status + ')');
+            }
+        }
+
+        function markAsChecked() {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+            document.getElementById('updateTimestamp').textContent = 'Gepr\u00fcft: ' + dateStr;
+            document.getElementById('statusBadge').textContent = 'Gepr\u00fcft am ' + dateStr;
+            document.getElementById('statusBadge').className = 'status-badge status-current';
+            closeUpdateModal();
+        }
+
+        document.getElementById('updateModal').addEventListener('click', function(e) {
+            if (e.target === this) closeUpdateModal();
+        });
+
+        window.addEventListener('DOMContentLoaded', function() {
+            loadData();
+        });
+    </script>
+</body>
+</html>
