@@ -37,67 +37,78 @@
       "data": {
         "50": [
           {
-            "anbieter": "ERGO",
-            "tarif": "Grundschutz",
-            "beitrag": 26.9,
-            "wartezeit": 36,
-            "gesundheit": "Nein",
+            "anbieter": "7.000 €",
+            "tarif": "Allianz2",
+            "beitrag": 2,
+            "wartezeit": 24,
+            "gesundheit": "Ja",
             "maxSumme": 15000,
-            "unfall": "2x",
-            "bewertung": 3.8,
-            "isErgo": true
+            "unfall": "1x",
+            "bewertung": 4,
+            "isErgo": false
           },
           {
-            "anbieter": "ERGO",
-            "tarif": "Komfort",
-            "beitrag": 31.2,
-            "wartezeit": 18,
-            "gesundheit": "Nein",
+            "anbieter": "9.000 €",
+            "tarif": "Allianz2",
+            "beitrag": 2,
+            "wartezeit": 24,
+            "gesundheit": "Ja",
             "maxSumme": 15000,
-            "unfall": "2x",
-            "bewertung": 4.5,
-            "isErgo": true
+            "unfall": "1x",
+            "bewertung": 4,
+            "isErgo": false
           },
           {
-            "anbieter": "ERGO",
-            "tarif": "Premium",
-            "beitrag": 35.8,
-            "wartezeit": 18,
-            "gesundheit": "Nein",
-            "maxSumme": 20000,
-            "unfall": "2x",
-            "bewertung": 4.7,
-            "isErgo": true
+            "anbieter": "6.000 €",
+            "tarif": "Die Bayerische3",
+            "beitrag": 3,
+            "wartezeit": 24,
+            "gesundheit": "Ja",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4,
+            "isErgo": false
           },
           {
             "anbieter": "DELA",
             "tarif": "Sorgenfrei 85",
-            "beitrag": 25.5,
-            "wartezeit": 18,
+            "beitrag": 3.56,
+            "wartezeit": 24,
             "gesundheit": "Nein",
-            "maxSumme": 25000,
-            "unfall": "2x",
-            "bewertung": 4.8,
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4,
             "isErgo": false
           },
           {
-            "anbieter": "DELA",
-            "tarif": "Sofort",
-            "beitrag": 29.6,
-            "wartezeit": 0,
+            "anbieter": "8.000 €",
+            "tarif": "Hannoversche4",
+            "beitrag": 4,
+            "wartezeit": 24,
             "gesundheit": "Ja",
-            "maxSumme": 25000,
-            "unfall": "2x",
-            "bewertung": 4.9,
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4,
             "isErgo": false
           },
           {
-            "anbieter": "Allianz",
-            "tarif": "BestattungsSchutz",
-            "beitrag": 26.8,
+            "anbieter": "GE·BE·IN",
+            "tarif": "Sterbegeld 85",
+            "beitrag": 20.59,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4.4,
+            "isErgo": false
+          },
+          {
+            "anbieter": "LV 1871",
+            "tarif": "Comfort Plus",
+            "beitrag": 23.2,
             "wartezeit": 6,
-            "gesundheit": "Ja",
-            "maxSumme": 20000,
+            "gesundheit": "Nein",
+            "maxSumme": 12500,
             "unfall": "2x",
             "bewertung": 4.6,
             "isErgo": false
@@ -114,17 +125,6 @@
             "isErgo": false
           },
           {
-            "anbieter": "LV 1871",
-            "tarif": "Comfort Plus",
-            "beitrag": 23.2,
-            "wartezeit": 6,
-            "gesundheit": "Nein",
-            "maxSumme": 12500,
-            "unfall": "2x",
-            "bewertung": 4.6,
-            "isErgo": false
-          },
-          {
             "anbieter": "Monuta",
             "tarif": "Trauerfall 85",
             "beitrag": 25,
@@ -136,58 +136,36 @@
             "isErgo": false
           },
           {
-            "anbieter": "Hannoversche",
-            "tarif": "Basis",
-            "beitrag": 34.53,
-            "wartezeit": 36,
-            "gesundheit": "Nein",
-            "maxSumme": 25000,
-            "unfall": "2x",
-            "bewertung": 4.4,
-            "isErgo": false
-          },
-          {
-            "anbieter": "Hannoversche",
-            "tarif": "Plus",
-            "beitrag": 35.13,
-            "wartezeit": 36,
-            "gesundheit": "Nein",
-            "maxSumme": 25000,
-            "unfall": "2x",
-            "bewertung": 4.6,
-            "isErgo": false
-          },
-          {
-            "anbieter": "Signal Iduna",
-            "tarif": "Sterbegeld SI",
-            "beitrag": 27.6,
+            "anbieter": "LVM",
+            "tarif": "Sterbegeld",
+            "beitrag": 25.6,
             "wartezeit": 24,
             "gesundheit": "Nein",
-            "maxSumme": 12500,
+            "maxSumme": 20000,
+            "unfall": "1x",
+            "bewertung": 4.3,
+            "isErgo": false
+          },
+          {
+            "anbieter": "Volkswohl Bund",
+            "tarif": "VB",
+            "beitrag": 25.8,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
             "unfall": "2x",
             "bewertung": 4.3,
             "isErgo": false
           },
           {
-            "anbieter": "CosmosDirekt",
-            "tarif": "CRS",
-            "beitrag": 21.4,
+            "anbieter": "HUK-COBURG",
+            "tarif": "Sterbegeld",
+            "beitrag": 25.9,
             "wartezeit": 36,
-            "gesundheit": "Nein",
-            "maxSumme": 20000,
-            "unfall": "1x",
-            "bewertung": 4.2,
-            "isErgo": false
-          },
-          {
-            "anbieter": "GE·BE·IN",
-            "tarif": "Sterbegeld 85",
-            "beitrag": 20.59,
-            "wartezeit": 24,
             "gesundheit": "Nein",
             "maxSumme": 15000,
             "unfall": "1x",
-            "bewertung": 4.4,
+            "bewertung": 4.1,
             "isErgo": false
           },
           {
@@ -213,6 +191,39 @@
             "isErgo": false
           },
           {
+            "anbieter": "CosmosDirekt",
+            "tarif": "CRS",
+            "beitrag": 26.77,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4,
+            "isErgo": false
+          },
+          {
+            "anbieter": "Allianz",
+            "tarif": "BestattungsSchutz",
+            "beitrag": 26.8,
+            "wartezeit": 6,
+            "gesundheit": "Ja",
+            "maxSumme": 20000,
+            "unfall": "2x",
+            "bewertung": 4.6,
+            "isErgo": false
+          },
+          {
+            "anbieter": "ERGO",
+            "tarif": "Grundschutz",
+            "beitrag": 26.9,
+            "wartezeit": 36,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "2x",
+            "bewertung": 3.8,
+            "isErgo": true
+          },
+          {
             "anbieter": "HanseMerkur",
             "tarif": "Sterbegeld",
             "beitrag": 27.2,
@@ -224,14 +235,14 @@
             "isErgo": false
           },
           {
-            "anbieter": "HUK-COBURG",
-            "tarif": "Sterbegeld",
-            "beitrag": 25.9,
-            "wartezeit": 36,
+            "anbieter": "Signal Iduna",
+            "tarif": "Sterbegeld SI",
+            "beitrag": 27.6,
+            "wartezeit": 24,
             "gesundheit": "Nein",
-            "maxSumme": 15000,
-            "unfall": "1x",
-            "bewertung": 4.1,
+            "maxSumme": 12500,
+            "unfall": "2x",
+            "bewertung": 4.3,
             "isErgo": false
           },
           {
@@ -246,77 +257,9 @@
             "isErgo": false
           },
           {
-            "anbieter": "LVM",
-            "tarif": "Sterbegeld",
-            "beitrag": 25.6,
-            "wartezeit": 24,
-            "gesundheit": "Nein",
-            "maxSumme": 20000,
-            "unfall": "1x",
-            "bewertung": 4.3,
-            "isErgo": false
-          },
-          {
-            "anbieter": "Volkswohl Bund",
-            "tarif": "VB",
-            "beitrag": 25.8,
-            "wartezeit": 24,
-            "gesundheit": "Nein",
-            "maxSumme": 15000,
-            "unfall": "2x",
-            "bewertung": 4.3,
-            "isErgo": false
-          }
-        ],
-        "60": [
-          {
-            "anbieter": "ERGO",
-            "tarif": "Grundschutz",
-            "beitrag": 39.06,
-            "wartezeit": 36,
-            "gesundheit": "Nein",
-            "maxSumme": 15000,
-            "unfall": "2x",
-            "bewertung": 3.8,
-            "isErgo": true
-          },
-          {
-            "anbieter": "ERGO",
-            "tarif": "Komfort",
-            "beitrag": 45.3,
-            "wartezeit": 18,
-            "gesundheit": "Nein",
-            "maxSumme": 15000,
-            "unfall": "2x",
-            "bewertung": 4.5,
-            "isErgo": true
-          },
-          {
-            "anbieter": "ERGO",
-            "tarif": "Premium",
-            "beitrag": 51.98,
-            "wartezeit": 18,
-            "gesundheit": "Nein",
-            "maxSumme": 20000,
-            "unfall": "2x",
-            "bewertung": 4.7,
-            "isErgo": true
-          },
-          {
-            "anbieter": "DELA",
-            "tarif": "Sorgenfrei 85",
-            "beitrag": 37.03,
-            "wartezeit": 18,
-            "gesundheit": "Nein",
-            "maxSumme": 25000,
-            "unfall": "2x",
-            "bewertung": 4.8,
-            "isErgo": false
-          },
-          {
             "anbieter": "DELA",
             "tarif": "Sofort",
-            "beitrag": 46.89,
+            "beitrag": 29.6,
             "wartezeit": 0,
             "gesundheit": "Ja",
             "maxSumme": 25000,
@@ -325,12 +268,135 @@
             "isErgo": false
           },
           {
-            "anbieter": "Allianz",
-            "tarif": "BestattungsSchutz",
-            "beitrag": 38.91,
-            "wartezeit": 6,
-            "gesundheit": "Ja",
+            "anbieter": "ERGO",
+            "tarif": "Komfort",
+            "beitrag": 31.2,
+            "wartezeit": 18,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "2x",
+            "bewertung": 4.5,
+            "isErgo": true
+          },
+          {
+            "anbieter": "Hannoversche",
+            "tarif": "Basis",
+            "beitrag": 34.53,
+            "wartezeit": 36,
+            "gesundheit": "Nein",
+            "maxSumme": 25000,
+            "unfall": "2x",
+            "bewertung": 4.4,
+            "isErgo": false
+          },
+          {
+            "anbieter": "Hannoversche",
+            "tarif": "Plus",
+            "beitrag": 35.13,
+            "wartezeit": 36,
+            "gesundheit": "Nein",
+            "maxSumme": 25000,
+            "unfall": "2x",
+            "bewertung": 4.6,
+            "isErgo": false
+          },
+          {
+            "anbieter": "ERGO",
+            "tarif": "Premium",
+            "beitrag": 35.78,
+            "wartezeit": 18,
+            "gesundheit": "Nein",
             "maxSumme": 20000,
+            "unfall": "2x",
+            "bewertung": 4.7,
+            "isErgo": true
+          }
+        ],
+        "60": [
+          {
+            "anbieter": "7.000 €",
+            "tarif": "Allianz2",
+            "beitrag": 2,
+            "wartezeit": 24,
+            "gesundheit": "Ja",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4,
+            "isErgo": false
+          },
+          {
+            "anbieter": "9.000 €",
+            "tarif": "Allianz2",
+            "beitrag": 2,
+            "wartezeit": 24,
+            "gesundheit": "Ja",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4,
+            "isErgo": false
+          },
+          {
+            "anbieter": "6.000 €",
+            "tarif": "Die Bayerische3",
+            "beitrag": 3,
+            "wartezeit": 24,
+            "gesundheit": "Ja",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4,
+            "isErgo": false
+          },
+          {
+            "anbieter": "DELA",
+            "tarif": "Sorgenfrei 85",
+            "beitrag": 3.56,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4,
+            "isErgo": false
+          },
+          {
+            "anbieter": "8.000 €",
+            "tarif": "Hannoversche4",
+            "beitrag": 4,
+            "wartezeit": 24,
+            "gesundheit": "Ja",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4,
+            "isErgo": false
+          },
+          {
+            "anbieter": "CosmosDirekt",
+            "tarif": "CRS",
+            "beitrag": 26.77,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4,
+            "isErgo": false
+          },
+          {
+            "anbieter": "GE·BE·IN",
+            "tarif": "Sterbegeld 85",
+            "beitrag": 29.9,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4.4,
+            "isErgo": false
+          },
+          {
+            "anbieter": "LV 1871",
+            "tarif": "Comfort Plus",
+            "beitrag": 33.69,
+            "wartezeit": 6,
+            "gesundheit": "Nein",
+            "maxSumme": 12500,
             "unfall": "2x",
             "bewertung": 4.6,
             "isErgo": false
@@ -347,17 +413,6 @@
             "isErgo": false
           },
           {
-            "anbieter": "LV 1871",
-            "tarif": "Comfort Plus",
-            "beitrag": 33.69,
-            "wartezeit": 6,
-            "gesundheit": "Nein",
-            "maxSumme": 12500,
-            "unfall": "2x",
-            "bewertung": 4.6,
-            "isErgo": false
-          },
-          {
             "anbieter": "Monuta",
             "tarif": "Trauerfall 85",
             "beitrag": 36.3,
@@ -366,6 +421,138 @@
             "maxSumme": 15000,
             "unfall": "2x",
             "bewertung": 4.7,
+            "isErgo": false
+          },
+          {
+            "anbieter": "LVM",
+            "tarif": "Sterbegeld",
+            "beitrag": 37.17,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 20000,
+            "unfall": "1x",
+            "bewertung": 4.3,
+            "isErgo": false
+          },
+          {
+            "anbieter": "Volkswohl Bund",
+            "tarif": "VB",
+            "beitrag": 37.46,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "2x",
+            "bewertung": 4.3,
+            "isErgo": false
+          },
+          {
+            "anbieter": "HUK-COBURG",
+            "tarif": "Sterbegeld",
+            "beitrag": 37.61,
+            "wartezeit": 36,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "1x",
+            "bewertung": 4.1,
+            "isErgo": false
+          },
+          {
+            "anbieter": "die Bayerische",
+            "tarif": "Komfort",
+            "beitrag": 38.04,
+            "wartezeit": 18,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "2x",
+            "bewertung": 4.5,
+            "isErgo": false
+          },
+          {
+            "anbieter": "ERGO",
+            "tarif": "Grundschutz",
+            "beitrag": 38.4,
+            "wartezeit": 36,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "2x",
+            "bewertung": 3.8,
+            "isErgo": true
+          },
+          {
+            "anbieter": "Nürnberger",
+            "tarif": "2.1",
+            "beitrag": 38.62,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "2x",
+            "bewertung": 4.3,
+            "isErgo": false
+          },
+          {
+            "anbieter": "Allianz",
+            "tarif": "BestattungsSchutz",
+            "beitrag": 38.91,
+            "wartezeit": 6,
+            "gesundheit": "Ja",
+            "maxSumme": 20000,
+            "unfall": "2x",
+            "bewertung": 4.6,
+            "isErgo": false
+          },
+          {
+            "anbieter": "HanseMerkur",
+            "tarif": "Sterbegeld",
+            "beitrag": 39.49,
+            "wartezeit": 36,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "2x",
+            "bewertung": 4.2,
+            "isErgo": false
+          },
+          {
+            "anbieter": "Signal Iduna",
+            "tarif": "Sterbegeld SI",
+            "beitrag": 40.07,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 12500,
+            "unfall": "2x",
+            "bewertung": 4.3,
+            "isErgo": false
+          },
+          {
+            "anbieter": "R+V",
+            "tarif": "Basis",
+            "beitrag": 40.37,
+            "wartezeit": 24,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "2x",
+            "bewertung": 4.2,
+            "isErgo": false
+          },
+          {
+            "anbieter": "ERGO",
+            "tarif": "Komfort",
+            "beitrag": 44.54,
+            "wartezeit": 18,
+            "gesundheit": "Nein",
+            "maxSumme": 15000,
+            "unfall": "2x",
+            "bewertung": 4.5,
+            "isErgo": true
+          },
+          {
+            "anbieter": "DELA",
+            "tarif": "Sofort",
+            "beitrag": 46.89,
+            "wartezeit": 0,
+            "gesundheit": "Ja",
+            "maxSumme": 25000,
+            "unfall": "2x",
+            "bewertung": 4.9,
             "isErgo": false
           },
           {
@@ -391,114 +578,15 @@
             "isErgo": false
           },
           {
-            "anbieter": "Signal Iduna",
-            "tarif": "Sterbegeld SI",
-            "beitrag": 40.07,
-            "wartezeit": 24,
-            "gesundheit": "Nein",
-            "maxSumme": 12500,
-            "unfall": "2x",
-            "bewertung": 4.3,
-            "isErgo": false
-          },
-          {
-            "anbieter": "CosmosDirekt",
-            "tarif": "CRS",
-            "beitrag": 31.07,
-            "wartezeit": 36,
-            "gesundheit": "Nein",
-            "maxSumme": 20000,
-            "unfall": "1x",
-            "bewertung": 4.2,
-            "isErgo": false
-          },
-          {
-            "anbieter": "GE·BE·IN",
-            "tarif": "Sterbegeld 85",
-            "beitrag": 29.9,
-            "wartezeit": 24,
-            "gesundheit": "Nein",
-            "maxSumme": 15000,
-            "unfall": "1x",
-            "bewertung": 4.4,
-            "isErgo": false
-          },
-          {
-            "anbieter": "die Bayerische",
-            "tarif": "Komfort",
-            "beitrag": 38.04,
+            "anbieter": "ERGO",
+            "tarif": "Premium",
+            "beitrag": 51.07,
             "wartezeit": 18,
             "gesundheit": "Nein",
-            "maxSumme": 15000,
-            "unfall": "2x",
-            "bewertung": 4.5,
-            "isErgo": false
-          },
-          {
-            "anbieter": "Nürnberger",
-            "tarif": "2.1",
-            "beitrag": 38.62,
-            "wartezeit": 24,
-            "gesundheit": "Nein",
-            "maxSumme": 15000,
-            "unfall": "2x",
-            "bewertung": 4.3,
-            "isErgo": false
-          },
-          {
-            "anbieter": "HanseMerkur",
-            "tarif": "Sterbegeld",
-            "beitrag": 39.49,
-            "wartezeit": 36,
-            "gesundheit": "Nein",
-            "maxSumme": 15000,
-            "unfall": "2x",
-            "bewertung": 4.2,
-            "isErgo": false
-          },
-          {
-            "anbieter": "HUK-COBURG",
-            "tarif": "Sterbegeld",
-            "beitrag": 37.61,
-            "wartezeit": 36,
-            "gesundheit": "Nein",
-            "maxSumme": 15000,
-            "unfall": "1x",
-            "bewertung": 4.1,
-            "isErgo": false
-          },
-          {
-            "anbieter": "R+V",
-            "tarif": "Basis",
-            "beitrag": 40.37,
-            "wartezeit": 24,
-            "gesundheit": "Nein",
-            "maxSumme": 15000,
-            "unfall": "2x",
-            "bewertung": 4.2,
-            "isErgo": false
-          },
-          {
-            "anbieter": "LVM",
-            "tarif": "Sterbegeld",
-            "beitrag": 37.17,
-            "wartezeit": 24,
-            "gesundheit": "Nein",
             "maxSumme": 20000,
-            "unfall": "1x",
-            "bewertung": 4.3,
-            "isErgo": false
-          },
-          {
-            "anbieter": "Volkswohl Bund",
-            "tarif": "VB",
-            "beitrag": 37.46,
-            "wartezeit": 24,
-            "gesundheit": "Nein",
-            "maxSumme": 15000,
             "unfall": "2x",
-            "bewertung": 4.3,
-            "isErgo": false
+            "bewertung": 4.7,
+            "isErgo": true
           }
         ]
       }
@@ -530,6 +618,105 @@
       "data": {
         "30": [
           {
+            "anbieter": "AXA",
+            "tarif": "DENT Premium-U",
+            "beitrag": 1.32,
+            "zahnersatz": 85,
+            "zahnbehandlung": 85,
+            "prophylaxe": "50€/J",
+            "wartezeit": "8 Mon",
+            "testurteil": "-",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Gothaer",
+            "tarif": "MediZ Smile 85",
+            "beitrag": 5.5,
+            "zahnersatz": 85,
+            "zahnbehandlung": 85,
+            "prophylaxe": "170€/J",
+            "wartezeit": "Keine",
+            "testurteil": "Note 1,4",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Württembergische",
+            "tarif": "ZahnSchutz Prem.",
+            "beitrag": 10.75,
+            "zahnersatz": 100,
+            "zahnbehandlung": 100,
+            "prophylaxe": "150€/J",
+            "wartezeit": "Keine",
+            "testurteil": "WaizmannW. 99%",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Münchener Verein",
+            "tarif": "ZahnGesund 100",
+            "beitrag": 12,
+            "zahnersatz": 100,
+            "zahnbehandlung": 100,
+            "prophylaxe": "120€/J",
+            "wartezeit": "Keine",
+            "testurteil": "Note 0,5",
+            "isErgo": false
+          },
+          {
+            "anbieter": "SDK",
+            "tarif": "Ambulant 70",
+            "beitrag": 14,
+            "zahnersatz": 70,
+            "zahnbehandlung": 70,
+            "prophylaxe": "100€/J",
+            "wartezeit": "Variabel",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Signal Iduna",
+            "tarif": "ZahnPlus",
+            "beitrag": 15,
+            "zahnersatz": 90,
+            "zahnbehandlung": 90,
+            "prophylaxe": "150€/J",
+            "wartezeit": "Keine",
+            "testurteil": "Note 1,8",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Allianz",
+            "tarif": "MeinZahn 90",
+            "beitrag": 15.89,
+            "zahnersatz": 90,
+            "zahnbehandlung": 90,
+            "prophylaxe": "150€/J",
+            "wartezeit": "Keine",
+            "testurteil": "Note 1,3",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Continentale",
+            "tarif": "CEZPu",
+            "beitrag": 16,
+            "zahnersatz": 90,
+            "zahnbehandlung": 90,
+            "prophylaxe": "150€/J",
+            "wartezeit": "Keine",
+            "testurteil": "Note 1,3",
+            "isErgo": false
+          },
+          {
+            "anbieter": "ARAG",
+            "tarif": "Z90Bonus",
+            "beitrag": 18,
+            "zahnersatz": 90,
+            "zahnbehandlung": 90,
+            "prophylaxe": "150€/J",
+            "wartezeit": "Keine",
+            "testurteil": "Note 1,4",
+            "isErgo": false
+          },
+          {
             "anbieter": "ERGO",
             "tarif": "Kombi ZAB+ZAE+ZBB",
             "beitrag": 18.5,
@@ -541,9 +728,42 @@
             "isErgo": true
           },
           {
-            "anbieter": "DFV",
-            "tarif": "Exklusiv 100",
-            "beitrag": 26.5,
+            "anbieter": "die Bayerische",
+            "tarif": "ZAHN Prestige",
+            "beitrag": 20,
+            "zahnersatz": 100,
+            "zahnbehandlung": 100,
+            "prophylaxe": "200€/J",
+            "wartezeit": "Keine",
+            "testurteil": "Note 0,5",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Envivas",
+            "tarif": "ZahnFlex MAX",
+            "beitrag": 20,
+            "zahnersatz": 90,
+            "zahnbehandlung": 90,
+            "prophylaxe": "150€/J",
+            "wartezeit": "Keine",
+            "testurteil": "Note 1,2",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Alte Oldenburger",
+            "tarif": "ZE80+ZB90",
+            "beitrag": 21.17,
+            "zahnersatz": 80,
+            "zahnbehandlung": 90,
+            "prophylaxe": "50€/J",
+            "wartezeit": "3-8 Mon",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Barmenia",
+            "tarif": "Mehr Zahn 100",
+            "beitrag": 22,
             "zahnersatz": 100,
             "zahnbehandlung": 100,
             "prophylaxe": "200€/J",
@@ -563,39 +783,6 @@
             "isErgo": false
           },
           {
-            "anbieter": "Barmenia",
-            "tarif": "Mehr Zahn 100",
-            "beitrag": 22,
-            "zahnersatz": 100,
-            "zahnbehandlung": 100,
-            "prophylaxe": "200€/J",
-            "wartezeit": "Keine",
-            "testurteil": "Note 0,5",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Münchener Verein",
-            "tarif": "ZahnGesund 100",
-            "beitrag": 12,
-            "zahnersatz": 100,
-            "zahnbehandlung": 100,
-            "prophylaxe": "120€/J",
-            "wartezeit": "Keine",
-            "testurteil": "Note 0,5",
-            "isErgo": false
-          },
-          {
-            "anbieter": "die Bayerische",
-            "tarif": "ZAHN Prestige",
-            "beitrag": 20,
-            "zahnersatz": 100,
-            "zahnbehandlung": 100,
-            "prophylaxe": "200€/J",
-            "wartezeit": "Keine",
-            "testurteil": "Note 0,5",
-            "isErgo": false
-          },
-          {
             "anbieter": "HanseMerkur",
             "tarif": "EZL",
             "beitrag": 25,
@@ -607,86 +794,143 @@
             "isErgo": false
           },
           {
-            "anbieter": "Allianz",
-            "tarif": "MeinZahn 90",
-            "beitrag": 15.89,
-            "zahnersatz": 90,
-            "zahnbehandlung": 90,
-            "prophylaxe": "150€/J",
+            "anbieter": "DFV",
+            "tarif": "Exklusiv 100",
+            "beitrag": 26.5,
+            "zahnersatz": 100,
+            "zahnbehandlung": 100,
+            "prophylaxe": "200€/J",
             "wartezeit": "Keine",
-            "testurteil": "Note 1,3",
+            "testurteil": "Note 0,5",
             "isErgo": false
           },
           {
-            "anbieter": "Württembergische",
-            "tarif": "ZahnSchutz Prem.",
-            "beitrag": 10.75,
+            "anbieter": "ERGO",
+            "tarif": "Premium ZAB+ZAE+ZBB",
+            "beitrag": 28.4,
             "zahnersatz": 100,
             "zahnbehandlung": 100,
             "prophylaxe": "150€/J",
+            "wartezeit": "8 Mon",
+            "testurteil": "WaizmannW. 89%",
+            "isErgo": true
+          }
+        ],
+        "50": [
+          {
+            "anbieter": "AXA",
+            "tarif": "DENT Premium-U",
+            "beitrag": 1.32,
+            "zahnersatz": 85,
+            "zahnbehandlung": 85,
+            "prophylaxe": "50€/J",
+            "wartezeit": "8 Mon",
+            "testurteil": "-",
+            "isErgo": false
+          },
+          {
+            "anbieter": "SDK",
+            "tarif": "Zahn 50",
+            "beitrag": 8.02,
+            "zahnersatz": 50,
+            "zahnbehandlung": 50,
+            "prophylaxe": "50€/J",
             "wartezeit": "Keine",
-            "testurteil": "WaizmannW. 99%",
+            "testurteil": "Basis",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Signal Iduna",
+            "tarif": "ZahnPLUS",
+            "beitrag": 16.42,
+            "zahnersatz": 70,
+            "zahnbehandlung": 70,
+            "prophylaxe": "105€/J",
+            "wartezeit": "3 Jahre",
+            "testurteil": "Note 1,8",
             "isErgo": false
           },
           {
             "anbieter": "Gothaer",
             "tarif": "MediZ Smile 85",
-            "beitrag": 5.5,
+            "beitrag": 23.7,
             "zahnersatz": 85,
-            "zahnbehandlung": 85,
+            "zahnbehandlung": 100,
             "prophylaxe": "170€/J",
             "wartezeit": "Keine",
             "testurteil": "Note 1,4",
             "isErgo": false
           },
           {
-            "anbieter": "ARAG",
-            "tarif": "Z90Bonus",
-            "beitrag": 18,
-            "zahnersatz": 90,
-            "zahnbehandlung": 90,
-            "prophylaxe": "150€/J",
-            "wartezeit": "Keine",
-            "testurteil": "Note 1,4",
+            "anbieter": "Continentale",
+            "tarif": "CEZP-U",
+            "beitrag": 30.76,
+            "zahnersatz": 85,
+            "zahnbehandlung": 100,
+            "prophylaxe": "75€/J",
+            "wartezeit": "8 J gestaffelt",
+            "testurteil": "WaizmannW. 86%",
             "isErgo": false
           },
           {
-            "anbieter": "Continentale",
-            "tarif": "CEZPu",
-            "beitrag": 16,
+            "anbieter": "Allianz",
+            "tarif": "MeinZahn 90",
+            "beitrag": 31.56,
             "zahnersatz": 90,
-            "zahnbehandlung": 90,
-            "prophylaxe": "150€/J",
+            "zahnbehandlung": 100,
+            "prophylaxe": "Unbegrenzt",
             "wartezeit": "Keine",
             "testurteil": "Note 1,3",
             "isErgo": false
           },
           {
-            "anbieter": "Signal Iduna",
-            "tarif": "ZahnPlus",
-            "beitrag": 15,
+            "anbieter": "ARAG",
+            "tarif": "Z90Bonus",
+            "beitrag": 32.11,
             "zahnersatz": 90,
             "zahnbehandlung": 90,
-            "prophylaxe": "150€/J",
-            "wartezeit": "Keine",
-            "testurteil": "Note 1,8",
+            "prophylaxe": "Gestaffelt",
+            "wartezeit": "Zahnbefund erf.",
+            "testurteil": "Note 1,4",
             "isErgo": false
           },
           {
-            "anbieter": "Alte Oldenburger",
-            "tarif": "ZE80+ZB90",
-            "beitrag": 21.17,
-            "zahnersatz": 80,
-            "zahnbehandlung": 90,
-            "prophylaxe": "50€/J",
-            "wartezeit": "3-8 Mon",
-            "testurteil": "Gut",
+            "anbieter": "Württembergische",
+            "tarif": "ZE90+ZBPlus",
+            "beitrag": 33.24,
+            "zahnersatz": 90,
+            "zahnbehandlung": 100,
+            "prophylaxe": "100€/J",
+            "wartezeit": "8 J gestaffelt",
+            "testurteil": "WaizmannW. 99%",
+            "isErgo": false
+          },
+          {
+            "anbieter": "HanseMerkur",
+            "tarif": "EZL",
+            "beitrag": 35,
+            "zahnersatz": 100,
+            "zahnbehandlung": 100,
+            "prophylaxe": "Unbegrenzt",
+            "wartezeit": "Keine",
+            "testurteil": "Note 0,6",
+            "isErgo": false
+          },
+          {
+            "anbieter": "die Bayerische",
+            "tarif": "ZAHN Prestige",
+            "beitrag": 35.6,
+            "zahnersatz": 100,
+            "zahnbehandlung": 100,
+            "prophylaxe": "200€/J",
+            "wartezeit": "Keine",
+            "testurteil": "Note 0,5",
             "isErgo": false
           },
           {
             "anbieter": "Envivas",
             "tarif": "ZahnFlex MAX",
-            "beitrag": 20,
+            "beitrag": 35.6,
             "zahnersatz": 90,
             "zahnbehandlung": 90,
             "prophylaxe": "150€/J",
@@ -695,39 +939,15 @@
             "isErgo": false
           },
           {
-            "anbieter": "SDK",
-            "tarif": "Ambulant 70",
-            "beitrag": 14,
-            "zahnersatz": 70,
-            "zahnbehandlung": 70,
-            "prophylaxe": "100€/J",
-            "wartezeit": "Variabel",
-            "testurteil": "Gut",
-            "isErgo": false
-          }
-        ],
-        "50": [
-          {
             "anbieter": "ERGO",
             "tarif": "Kombi ZAB+ZAE+ZBB",
-            "beitrag": 32.9,
+            "beitrag": 35.9,
             "zahnersatz": 90,
             "zahnbehandlung": 100,
             "prophylaxe": "60€/J",
             "wartezeit": "3-8 Mon",
             "testurteil": "WaizmannW. 73%",
             "isErgo": true
-          },
-          {
-            "anbieter": "DFV",
-            "tarif": "Exklusiv 100",
-            "beitrag": 45.5,
-            "zahnersatz": 100,
-            "zahnbehandlung": 100,
-            "prophylaxe": "Unbegrenzt",
-            "wartezeit": "Keine",
-            "testurteil": "Note 0,5",
-            "isErgo": false
           },
           {
             "anbieter": "Hallesche",
@@ -752,6 +972,28 @@
             "isErgo": false
           },
           {
+            "anbieter": "DFV",
+            "tarif": "Exklusiv 100",
+            "beitrag": 45.5,
+            "zahnersatz": 100,
+            "zahnbehandlung": 100,
+            "prophylaxe": "Unbegrenzt",
+            "wartezeit": "Keine",
+            "testurteil": "Note 0,5",
+            "isErgo": false
+          },
+          {
+            "anbieter": "ERGO",
+            "tarif": "Premium ZAB+ZAE+ZBB",
+            "beitrag": 54.8,
+            "zahnersatz": 100,
+            "zahnbehandlung": 100,
+            "prophylaxe": "150€/J",
+            "wartezeit": "8 Mon",
+            "testurteil": "WaizmannW. 89%",
+            "isErgo": true
+          },
+          {
             "anbieter": "Münchener Verein",
             "tarif": "ZahnGesund 100",
             "beitrag": 55.9,
@@ -760,116 +1002,6 @@
             "prophylaxe": "200€/J",
             "wartezeit": "Keine",
             "testurteil": "Note 0,5",
-            "isErgo": false
-          },
-          {
-            "anbieter": "die Bayerische",
-            "tarif": "ZAHN Prestige",
-            "beitrag": 35.6,
-            "zahnersatz": 100,
-            "zahnbehandlung": 100,
-            "prophylaxe": "200€/J",
-            "wartezeit": "Keine",
-            "testurteil": "Note 0,5",
-            "isErgo": false
-          },
-          {
-            "anbieter": "HanseMerkur",
-            "tarif": "EZL",
-            "beitrag": 35,
-            "zahnersatz": 100,
-            "zahnbehandlung": 100,
-            "prophylaxe": "Unbegrenzt",
-            "wartezeit": "Keine",
-            "testurteil": "Note 0,6",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Allianz",
-            "tarif": "MeinZahn 90",
-            "beitrag": 31.56,
-            "zahnersatz": 90,
-            "zahnbehandlung": 100,
-            "prophylaxe": "Unbegrenzt",
-            "wartezeit": "Keine",
-            "testurteil": "Note 1,3",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Württembergische",
-            "tarif": "ZE90+ZBPlus",
-            "beitrag": 33.24,
-            "zahnersatz": 90,
-            "zahnbehandlung": 100,
-            "prophylaxe": "100€/J",
-            "wartezeit": "8 J gestaffelt",
-            "testurteil": "WaizmannW. 99%",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Gothaer",
-            "tarif": "MediZ Smile 85",
-            "beitrag": 23.7,
-            "zahnersatz": 85,
-            "zahnbehandlung": 100,
-            "prophylaxe": "170€/J",
-            "wartezeit": "Keine",
-            "testurteil": "Note 1,4",
-            "isErgo": false
-          },
-          {
-            "anbieter": "ARAG",
-            "tarif": "Z90Bonus",
-            "beitrag": 32.11,
-            "zahnersatz": 90,
-            "zahnbehandlung": 90,
-            "prophylaxe": "Gestaffelt",
-            "wartezeit": "Zahnbefund erf.",
-            "testurteil": "Note 1,4",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Continentale",
-            "tarif": "CEZP-U",
-            "beitrag": 30.76,
-            "zahnersatz": 85,
-            "zahnbehandlung": 100,
-            "prophylaxe": "75€/J",
-            "wartezeit": "8 J gestaffelt",
-            "testurteil": "WaizmannW. 86%",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Signal Iduna",
-            "tarif": "ZahnPLUS",
-            "beitrag": 16.42,
-            "zahnersatz": 70,
-            "zahnbehandlung": 70,
-            "prophylaxe": "105€/J",
-            "wartezeit": "3 Jahre",
-            "testurteil": "Note 1,8",
-            "isErgo": false
-          },
-          {
-            "anbieter": "SDK",
-            "tarif": "Zahn 50",
-            "beitrag": 8.02,
-            "zahnersatz": 50,
-            "zahnbehandlung": 50,
-            "prophylaxe": "50€/J",
-            "wartezeit": "Keine",
-            "testurteil": "Basis",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Envivas",
-            "tarif": "ZahnFlex MAX",
-            "beitrag": 35.6,
-            "zahnersatz": 90,
-            "zahnbehandlung": 90,
-            "prophylaxe": "150€/J",
-            "wartezeit": "Keine",
-            "testurteil": "Note 1,2",
             "isErgo": false
           }
         ]
@@ -903,28 +1035,16 @@
       "data": {
         "Einbett": [
           {
-            "anbieter": "ERGO",
-            "tarif": "SZS",
-            "beitrag": 27.7,
+            "anbieter": "AXA",
+            "tarif": "Komfort-U",
+            "beitrag": 10.17,
             "chefarzt": "Ja",
             "zimmer": "Einbett",
-            "rooming": "Ja",
-            "altersRueckst": "Nein",
-            "wartezeit": "3 Mon",
-            "testurteil": "Empfohlen",
-            "isErgo": true
-          },
-          {
-            "anbieter": "ERGO",
-            "tarif": "SZL",
-            "beitrag": 35,
-            "chefarzt": "Ja",
-            "zimmer": "Einbett",
-            "rooming": "Ja",
+            "rooming": "Nein",
             "altersRueckst": "Ja",
             "wartezeit": "3 Mon",
-            "testurteil": "Empfohlen",
-            "isErgo": true
+            "testurteil": "-",
+            "isErgo": false
           },
           {
             "anbieter": "DKV",
@@ -935,6 +1055,114 @@
             "rooming": "Ja",
             "altersRueckst": "Nein",
             "wartezeit": "Keine",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Münchener Verein",
+            "tarif": "Premium",
+            "beitrag": 18,
+            "chefarzt": "Ja",
+            "zimmer": "Einbett",
+            "rooming": "Ja",
+            "altersRueckst": "Nein",
+            "wartezeit": "Keine",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Signal Iduna",
+            "tarif": "Stationär",
+            "beitrag": 25,
+            "chefarzt": "Ja",
+            "zimmer": "Einbett",
+            "rooming": "Ja",
+            "altersRueckst": "Nein",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "HanseMerkur",
+            "tarif": "Stationär",
+            "beitrag": 26,
+            "chefarzt": "Ja",
+            "zimmer": "Einbett",
+            "rooming": "Ja",
+            "altersRueckst": "Nein",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Alte Oldenburger",
+            "tarif": "K50",
+            "beitrag": 26.5,
+            "chefarzt": "Ja",
+            "zimmer": "Einbett",
+            "rooming": "Ja",
+            "altersRueckst": "Ja",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "ERGO",
+            "tarif": "SZS",
+            "beitrag": 27.7,
+            "chefarzt": "Ja",
+            "zimmer": "Einbett",
+            "rooming": "Ja",
+            "altersRueckst": "Nein",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut (2,1)",
+            "isErgo": true
+          },
+          {
+            "anbieter": "Continentale",
+            "tarif": "SG1",
+            "beitrag": 28,
+            "chefarzt": "Ja",
+            "zimmer": "Einbett",
+            "rooming": "Ja",
+            "altersRueckst": "Ja",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "SDK",
+            "tarif": "SP1",
+            "beitrag": 30,
+            "chefarzt": "Ja",
+            "zimmer": "Einbett",
+            "rooming": "Ja",
+            "altersRueckst": "Ja",
+            "wartezeit": "3 Mon",
+            "testurteil": "Empfohlen",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Allianz",
+            "tarif": "Stationär",
+            "beitrag": 32,
+            "chefarzt": "Ja",
+            "zimmer": "Einbett",
+            "rooming": "Ja",
+            "altersRueckst": "Ja",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "AXA",
+            "tarif": "Premium Plus",
+            "beitrag": 34,
+            "chefarzt": "Ja",
+            "zimmer": "Einbett",
+            "rooming": "Ja",
+            "altersRueckst": "Ja",
+            "wartezeit": "3 Mon",
             "testurteil": "Gut",
             "isErgo": false
           },
@@ -963,6 +1191,18 @@
             "isErgo": false
           },
           {
+            "anbieter": "ERGO",
+            "tarif": "SZU",
+            "beitrag": 44.3,
+            "chefarzt": "Ja",
+            "zimmer": "Einbett",
+            "rooming": "Ja",
+            "altersRueckst": "Nein",
+            "wartezeit": "3 Mon",
+            "testurteil": "Sehr gut (1,4)",
+            "isErgo": true
+          },
+          {
             "anbieter": "Hallesche",
             "tarif": "Mega Clinic AR",
             "beitrag": 45.8,
@@ -972,78 +1212,6 @@
             "altersRueckst": "Ja",
             "wartezeit": "Keine",
             "testurteil": "Empfohlen",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Münchener Verein",
-            "tarif": "Premium",
-            "beitrag": 18,
-            "chefarzt": "Ja",
-            "zimmer": "Einbett",
-            "rooming": "Ja",
-            "altersRueckst": "Nein",
-            "wartezeit": "Keine",
-            "testurteil": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Continentale",
-            "tarif": "SG1",
-            "beitrag": 28,
-            "chefarzt": "Ja",
-            "zimmer": "Einbett",
-            "rooming": "Ja",
-            "altersRueckst": "Ja",
-            "wartezeit": "3 Mon",
-            "testurteil": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "HanseMerkur",
-            "tarif": "Stationär",
-            "beitrag": 26,
-            "chefarzt": "Ja",
-            "zimmer": "Einbett",
-            "rooming": "Ja",
-            "altersRueckst": "Nein",
-            "wartezeit": "3 Mon",
-            "testurteil": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Allianz",
-            "tarif": "Stationär",
-            "beitrag": 32,
-            "chefarzt": "Ja",
-            "zimmer": "Einbett",
-            "rooming": "Ja",
-            "altersRueckst": "Ja",
-            "wartezeit": "3 Mon",
-            "testurteil": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "AXA",
-            "tarif": "Premium Plus",
-            "beitrag": 34,
-            "chefarzt": "Ja",
-            "zimmer": "Einbett",
-            "rooming": "Ja",
-            "altersRueckst": "Ja",
-            "wartezeit": "3 Mon",
-            "testurteil": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Signal Iduna",
-            "tarif": "Stationär",
-            "beitrag": 25,
-            "chefarzt": "Ja",
-            "zimmer": "Einbett",
-            "rooming": "Ja",
-            "altersRueckst": "Nein",
-            "wartezeit": "3 Mon",
-            "testurteil": "Gut",
             "isErgo": false
           },
           {
@@ -1057,57 +1225,9 @@
             "wartezeit": "3 Mon",
             "testurteil": "Gut",
             "isErgo": false
-          },
-          {
-            "anbieter": "SDK",
-            "tarif": "SP1",
-            "beitrag": 30,
-            "chefarzt": "Ja",
-            "zimmer": "Einbett",
-            "rooming": "Ja",
-            "altersRueckst": "Ja",
-            "wartezeit": "3 Mon",
-            "testurteil": "Empfohlen",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Alte Oldenburger",
-            "tarif": "K50",
-            "beitrag": 26.5,
-            "chefarzt": "Ja",
-            "zimmer": "Einbett",
-            "rooming": "Ja",
-            "altersRueckst": "Ja",
-            "wartezeit": "3 Mon",
-            "testurteil": "Gut",
-            "isErgo": false
           }
         ],
         "Zweibett": [
-          {
-            "anbieter": "ERGO",
-            "tarif": "SZS",
-            "beitrag": 20.78,
-            "chefarzt": "Ja",
-            "zimmer": "Zweibett",
-            "rooming": "Ja",
-            "altersRueckst": "Nein",
-            "wartezeit": "3 Mon",
-            "testurteil": "Empfohlen",
-            "isErgo": true
-          },
-          {
-            "anbieter": "ERGO",
-            "tarif": "SZL",
-            "beitrag": 26.25,
-            "chefarzt": "Ja",
-            "zimmer": "Zweibett",
-            "rooming": "Ja",
-            "altersRueckst": "Ja",
-            "wartezeit": "3 Mon",
-            "testurteil": "Empfohlen",
-            "isErgo": true
-          },
           {
             "anbieter": "DKV",
             "tarif": "UZ2",
@@ -1117,6 +1237,102 @@
             "rooming": "Ja",
             "altersRueckst": "Nein",
             "wartezeit": "Keine",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "AXA",
+            "tarif": "Komfort-U",
+            "beitrag": 10.17,
+            "chefarzt": "Ja",
+            "zimmer": "Zweibett",
+            "rooming": "Nein",
+            "altersRueckst": "Ja",
+            "wartezeit": "3 Mon",
+            "testurteil": "-",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Münchener Verein",
+            "tarif": "Komfort",
+            "beitrag": 13.5,
+            "chefarzt": "Ja",
+            "zimmer": "Zweibett",
+            "rooming": "Ja",
+            "altersRueckst": "Nein",
+            "wartezeit": "Keine",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Signal Iduna",
+            "tarif": "KlinikTOP 2B",
+            "beitrag": 18.75,
+            "chefarzt": "Ja",
+            "zimmer": "Zweibett",
+            "rooming": "Ja",
+            "altersRueckst": "Nein",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "HanseMerkur",
+            "tarif": "Stationär 2B",
+            "beitrag": 19.5,
+            "chefarzt": "Ja",
+            "zimmer": "Zweibett",
+            "rooming": "Ja",
+            "altersRueckst": "Nein",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "ERGO",
+            "tarif": "SZS",
+            "beitrag": 19.8,
+            "chefarzt": "Ja",
+            "zimmer": "Zweibett",
+            "rooming": "Ja",
+            "altersRueckst": "Nein",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut (2,1)",
+            "isErgo": true
+          },
+          {
+            "anbieter": "Alte Oldenburger",
+            "tarif": "K50 2B",
+            "beitrag": 19.88,
+            "chefarzt": "Ja",
+            "zimmer": "Zweibett",
+            "rooming": "Ja",
+            "altersRueckst": "Ja",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Continentale",
+            "tarif": "SG2",
+            "beitrag": 21,
+            "chefarzt": "Ja",
+            "zimmer": "Zweibett",
+            "rooming": "Ja",
+            "altersRueckst": "Ja",
+            "wartezeit": "3 Mon",
+            "testurteil": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Allianz",
+            "tarif": "Stationär 2B",
+            "beitrag": 24,
+            "chefarzt": "Ja",
+            "zimmer": "Zweibett",
+            "rooming": "Ja",
+            "altersRueckst": "Ja",
+            "wartezeit": "3 Mon",
             "testurteil": "Gut",
             "isErgo": false
           },
@@ -1157,64 +1373,16 @@
             "isErgo": false
           },
           {
-            "anbieter": "Münchener Verein",
-            "tarif": "Komfort",
-            "beitrag": 13.5,
-            "chefarzt": "Ja",
-            "zimmer": "Zweibett",
-            "rooming": "Ja",
-            "altersRueckst": "Nein",
-            "wartezeit": "Keine",
-            "testurteil": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Continentale",
-            "tarif": "SG2",
-            "beitrag": 21,
-            "chefarzt": "Ja",
-            "zimmer": "Zweibett",
-            "rooming": "Ja",
-            "altersRueckst": "Ja",
-            "wartezeit": "3 Mon",
-            "testurteil": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "HanseMerkur",
-            "tarif": "Stationär 2B",
-            "beitrag": 19.5,
+            "anbieter": "ERGO",
+            "tarif": "SZU",
+            "beitrag": 35.2,
             "chefarzt": "Ja",
             "zimmer": "Zweibett",
             "rooming": "Ja",
             "altersRueckst": "Nein",
             "wartezeit": "3 Mon",
-            "testurteil": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Allianz",
-            "tarif": "Stationär 2B",
-            "beitrag": 24,
-            "chefarzt": "Ja",
-            "zimmer": "Zweibett",
-            "rooming": "Ja",
-            "altersRueckst": "Ja",
-            "wartezeit": "3 Mon",
-            "testurteil": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Signal Iduna",
-            "tarif": "KlinikTOP 2B",
-            "beitrag": 18.75,
-            "chefarzt": "Ja",
-            "zimmer": "Zweibett",
-            "rooming": "Ja",
-            "altersRueckst": "Nein",
-            "wartezeit": "3 Mon",
-            "testurteil": "Gut",
-            "isErgo": false
+            "testurteil": "Sehr gut (1,4)",
+            "isErgo": true
           },
           {
             "anbieter": "Gothaer",
@@ -1238,18 +1406,6 @@
             "altersRueckst": "Ja",
             "wartezeit": "3 Mon",
             "testurteil": "Leistungssieger",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Alte Oldenburger",
-            "tarif": "K50 2B",
-            "beitrag": 19.88,
-            "chefarzt": "Ja",
-            "zimmer": "Zweibett",
-            "rooming": "Ja",
-            "altersRueckst": "Ja",
-            "wartezeit": "3 Mon",
-            "testurteil": "Gut",
             "isErgo": false
           }
         ]
@@ -1283,28 +1439,64 @@
       "data": {
         "Hamburg": [
           {
-            "anbieter": "ERGO",
-            "tarif": "Smart",
-            "beitrag": 350,
+            "anbieter": "Kleinmachnow1(Landkreis Potsda",
+            "tarif": "1",
+            "beitrag": 1,
             "elementar": "Optional",
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "ableit": "Ja",
-            "uebersp": "Ja",
-            "test": "Fair",
-            "isErgo": true
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "ableit": "Nein",
+            "uebersp": "Nein",
+            "test": "232 Euro",
+            "isErgo": false
           },
           {
-            "anbieter": "ERGO",
-            "tarif": "Best",
-            "beitrag": 480,
-            "elementar": "Inklusive",
-            "grobeFahrl": "Ja unbegr.",
-            "unterversV": "Ja",
-            "ableit": "Ja",
-            "uebersp": "Ja",
-            "test": "Fair",
-            "isErgo": true
+            "anbieter": "Kleinmachnow(Landkreis Potsdam",
+            "tarif": "1",
+            "beitrag": 1,
+            "elementar": "Optional",
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "ableit": "Nein",
+            "uebersp": "Nein",
+            "test": "364 Euro",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Saarlouis(Saarland)",
+            "tarif": "2",
+            "beitrag": 2,
+            "elementar": "Optional",
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "ableit": "Nein",
+            "uebersp": "Nein",
+            "test": "696 Euro",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Braunsbach(Landkreis Schwäbisc",
+            "tarif": "3",
+            "beitrag": 3,
+            "elementar": "Optional",
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "ableit": "Nein",
+            "uebersp": "Nein",
+            "test": "1.377 Euro",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Gera2(Thüringen)",
+            "tarif": "3",
+            "beitrag": 3,
+            "elementar": "Optional",
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "ableit": "Nein",
+            "uebersp": "Nein",
+            "test": "1.006 Euro",
+            "isErgo": false
           },
           {
             "anbieter": "CosmosDirekt",
@@ -1415,6 +1607,18 @@
             "isErgo": false
           },
           {
+            "anbieter": "ERGO",
+            "tarif": "Smart",
+            "beitrag": 350,
+            "elementar": "Optional",
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "ableit": "Ja",
+            "uebersp": "Ja",
+            "test": "Gut (2,3)",
+            "isErgo": true
+          },
+          {
             "anbieter": "HDI",
             "tarif": "Komfort",
             "beitrag": 355,
@@ -1487,6 +1691,18 @@
             "isErgo": false
           },
           {
+            "anbieter": "ERGO",
+            "tarif": "Best",
+            "beitrag": 485,
+            "elementar": "Inklusive",
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "ableit": "Ja",
+            "uebersp": "Ja",
+            "test": "Sehr gut (1,5)",
+            "isErgo": true
+          },
+          {
             "anbieter": "AXA",
             "tarif": "Standard",
             "beitrag": 530,
@@ -1501,28 +1717,64 @@
         ],
         "München": [
           {
-            "anbieter": "ERGO",
-            "tarif": "Smart",
-            "beitrag": 413,
+            "anbieter": "Kleinmachnow1(Landkreis Potsda",
+            "tarif": "1",
+            "beitrag": 1,
             "elementar": "Optional",
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "ableit": "Ja",
-            "uebersp": "Ja",
-            "test": "Fair",
-            "isErgo": true
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "ableit": "Nein",
+            "uebersp": "Nein",
+            "test": "232 Euro",
+            "isErgo": false
           },
           {
-            "anbieter": "ERGO",
-            "tarif": "Best",
-            "beitrag": 566,
-            "elementar": "Inklusive",
-            "grobeFahrl": "Ja unbegr.",
-            "unterversV": "Ja",
-            "ableit": "Ja",
-            "uebersp": "Ja",
-            "test": "Fair",
-            "isErgo": true
+            "anbieter": "Kleinmachnow(Landkreis Potsdam",
+            "tarif": "1",
+            "beitrag": 1,
+            "elementar": "Optional",
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "ableit": "Nein",
+            "uebersp": "Nein",
+            "test": "364 Euro",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Saarlouis(Saarland)",
+            "tarif": "2",
+            "beitrag": 2,
+            "elementar": "Optional",
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "ableit": "Nein",
+            "uebersp": "Nein",
+            "test": "696 Euro",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Braunsbach(Landkreis Schwäbisc",
+            "tarif": "3",
+            "beitrag": 3,
+            "elementar": "Optional",
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "ableit": "Nein",
+            "uebersp": "Nein",
+            "test": "1.377 Euro",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Gera2(Thüringen)",
+            "tarif": "3",
+            "beitrag": 3,
+            "elementar": "Optional",
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "ableit": "Nein",
+            "uebersp": "Nein",
+            "test": "1.006 Euro",
+            "isErgo": false
           },
           {
             "anbieter": "CosmosDirekt",
@@ -1645,6 +1897,18 @@
             "isErgo": false
           },
           {
+            "anbieter": "ERGO",
+            "tarif": "Smart",
+            "beitrag": 420,
+            "elementar": "Optional",
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "ableit": "Ja",
+            "uebersp": "Ja",
+            "test": "Gut (2,3)",
+            "isErgo": true
+          },
+          {
             "anbieter": "Provinzial",
             "tarif": "Standard",
             "beitrag": 425,
@@ -1705,6 +1969,18 @@
             "isErgo": false
           },
           {
+            "anbieter": "ERGO",
+            "tarif": "Best",
+            "beitrag": 580,
+            "elementar": "Inklusive",
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "ableit": "Ja",
+            "uebersp": "Ja",
+            "test": "Sehr gut (1,5)",
+            "isErgo": true
+          },
+          {
             "anbieter": "AXA",
             "tarif": "Standard",
             "beitrag": 625,
@@ -1735,28 +2011,6 @@
       ],
       "defaultSort": "Beitrag/Monat",
       "data": [
-        {
-          "anbieter": "ERGO",
-          "tarif": "Augen-Vorsorge",
-          "beitrag": 9.9,
-          "brillen": "150€",
-          "lasik": "1.000€",
-          "kontaktl": "Ja",
-          "wartezeit": "Keine",
-          "vorsorge": "100€/J",
-          "isErgo": true
-        },
-        {
-          "anbieter": "ERGO",
-          "tarif": "Augen-Premium",
-          "beitrag": 14.9,
-          "brillen": "300€",
-          "lasik": "1.000€",
-          "kontaktl": "Ja",
-          "wartezeit": "Keine",
-          "vorsorge": "200€/J",
-          "isErgo": true
-        },
         {
           "anbieter": "DKV",
           "tarif": "KSHR",
@@ -1789,6 +2043,17 @@
           "wartezeit": "Keine",
           "vorsorge": "Ja",
           "isErgo": false
+        },
+        {
+          "anbieter": "ERGO",
+          "tarif": "Augen-Vorsorge",
+          "beitrag": 9.9,
+          "brillen": "150€",
+          "lasik": "1.000€",
+          "kontaktl": "Ja",
+          "wartezeit": "Keine",
+          "vorsorge": "Ja",
+          "isErgo": true
         },
         {
           "anbieter": "Envivas",
@@ -1868,6 +2133,17 @@
           "isErgo": false
         },
         {
+          "anbieter": "ERGO",
+          "tarif": "Augen-Premium",
+          "beitrag": 14.9,
+          "brillen": "300€",
+          "lasik": "2.000€",
+          "kontaktl": "Ja",
+          "wartezeit": "Keine",
+          "vorsorge": "Ja",
+          "isErgo": true
+        },
+        {
           "anbieter": "Münchener Verein",
           "tarif": "Sehhilfen",
           "beitrag": 15,
@@ -1930,28 +2206,28 @@
       "data": {
         "Single": [
           {
-            "anbieter": "ERGO",
-            "tarif": "Komfort",
-            "beitrag": 443,
-            "deckung": "Unbegrenzt",
+            "anbieter": "ROLAND",
+            "tarif": "Kompakt",
+            "beitrag": 11.67,
+            "deckung": "300.000€",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
-            "onlineBeratung": "Ja",
-            "test": "Gut",
-            "isErgo": true
+            "onlineBeratung": "Nein",
+            "test": "-",
+            "isErgo": false
           },
           {
-            "anbieter": "ERGO",
-            "tarif": "Premium",
-            "beitrag": 479,
-            "deckung": "Unbegrenzt",
-            "selbstbet": "0€",
+            "anbieter": "ARAG",
+            "tarif": "Aktiv Komfort",
+            "beitrag": 14.73,
+            "deckung": "300.000€",
+            "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
-            "onlineBeratung": "Ja 24/7",
-            "test": "Sehr gut",
-            "isErgo": true
+            "onlineBeratung": "Nein",
+            "test": "-",
+            "isErgo": false
           },
           {
             "anbieter": "HUK-COBURG",
@@ -1978,12 +2254,96 @@
             "isErgo": false
           },
           {
+            "anbieter": "Allianz",
+            "tarif": "Smart",
+            "beitrag": 248,
+            "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Ja",
+            "test": "Sehr gut",
+            "isErgo": false
+          },
+          {
             "anbieter": "ADAC",
             "tarif": "Privat+Beruf+Verk.",
             "beitrag": 254,
             "deckung": "500.000€",
             "selbstbet": "150€",
             "wartezeit": "0 Mon (Verk)",
+            "mediation": "Ja",
+            "onlineBeratung": "Ja",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Concordia",
+            "tarif": "Sorglos",
+            "beitrag": 280,
+            "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Nein",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "ÖRAG",
+            "tarif": "Komfort",
+            "beitrag": 310,
+            "deckung": "500.000€",
+            "selbstbet": "250€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Nein",
+            "test": "Fair Testsieger",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Advocard",
+            "tarif": "Standard",
+            "beitrag": 320,
+            "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Ja (tel.)",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "LVM",
+            "tarif": "Standard",
+            "beitrag": 330,
+            "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Ja",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "DEVK",
+            "tarif": "Standard",
+            "beitrag": 331,
+            "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Ja",
+            "test": "Sehr gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Gothaer",
+            "tarif": "Komfort",
+            "beitrag": 340,
+            "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
             "mediation": "Ja",
             "onlineBeratung": "Ja",
             "test": "Gut",
@@ -2002,75 +2362,15 @@
             "isErgo": false
           },
           {
-            "anbieter": "Concordia",
-            "tarif": "Sorglos",
-            "beitrag": 280,
-            "deckung": "500.000€",
-            "selbstbet": "150€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Nein",
-            "test": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "DEVK",
+            "anbieter": "HDI",
             "tarif": "Standard",
-            "beitrag": 331,
+            "beitrag": 350,
             "deckung": "500.000€",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
             "onlineBeratung": "Ja",
-            "test": "Sehr gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Allianz",
-            "tarif": "Smart",
-            "beitrag": 248,
-            "deckung": "500.000€",
-            "selbstbet": "150€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Ja",
-            "test": "Sehr gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Allianz",
-            "tarif": "Komfort",
-            "beitrag": 380,
-            "deckung": "1 Mio€",
-            "selbstbet": "150€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Ja",
-            "test": "Sehr gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Roland",
-            "tarif": "Komfort",
-            "beitrag": 425,
-            "deckung": "1 Mio€",
-            "selbstbet": "150€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Ja",
-            "test": "Fair 7x",
-            "isErgo": false
-          },
-          {
-            "anbieter": "DAS",
-            "tarif": "Premium",
-            "beitrag": 400,
-            "deckung": "Unbegrenzt",
-            "selbstbet": "150€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Ja",
-            "test": "Premium",
+            "test": "Gut",
             "isErgo": false
           },
           {
@@ -2086,67 +2386,41 @@
             "isErgo": false
           },
           {
-            "anbieter": "Gothaer",
+            "anbieter": "Allianz",
             "tarif": "Komfort",
-            "beitrag": 340,
-            "deckung": "500.000€",
+            "beitrag": 380,
+            "deckung": "1 Mio€",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
             "onlineBeratung": "Ja",
-            "test": "Gut",
+            "test": "Sehr gut",
             "isErgo": false
           },
           {
-            "anbieter": "Advocard",
-            "tarif": "Standard",
-            "beitrag": 320,
-            "deckung": "500.000€",
+            "anbieter": "DAS",
+            "tarif": "Premium",
+            "beitrag": 400,
+            "deckung": "Unbegrenzt",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
-            "onlineBeratung": "Ja (tel.)",
-            "test": "Gut",
+            "onlineBeratung": "Ja",
+            "test": "Premium",
             "isErgo": false
           },
           {
-            "anbieter": "ÖRAG",
+            "anbieter": "Roland",
             "tarif": "Komfort",
-            "beitrag": 310,
-            "deckung": "500.000€",
-            "selbstbet": "250€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Nein",
-            "test": "Fair Testsieger",
-            "isErgo": false
-          },
-          {
-            "anbieter": "HDI",
-            "tarif": "Standard",
-            "beitrag": 350,
-            "deckung": "500.000€",
+            "beitrag": 425,
+            "deckung": "1 Mio€",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
             "onlineBeratung": "Ja",
-            "test": "Gut",
+            "test": "Fair 7x",
             "isErgo": false
           },
-          {
-            "anbieter": "LVM",
-            "tarif": "Standard",
-            "beitrag": 330,
-            "deckung": "500.000€",
-            "selbstbet": "150€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Ja",
-            "test": "Gut",
-            "isErgo": false
-          }
-        ],
-        "Familie": [
           {
             "anbieter": "ERGO",
             "tarif": "Komfort",
@@ -2156,20 +2430,46 @@
             "wartezeit": "3 Mon",
             "mediation": "Ja",
             "onlineBeratung": "Ja",
-            "test": "Gut",
+            "test": "Gut (2,2)",
             "isErgo": true
           },
           {
             "anbieter": "ERGO",
             "tarif": "Premium",
-            "beitrag": 575,
+            "beitrag": 680,
             "deckung": "Unbegrenzt",
             "selbstbet": "0€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
-            "onlineBeratung": "Ja 24/7",
-            "test": "Sehr gut",
+            "onlineBeratung": "Ja",
+            "test": "Sehr gut (1,3)",
             "isErgo": true
+          }
+        ],
+        "Familie": [
+          {
+            "anbieter": "ROLAND",
+            "tarif": "Kompakt",
+            "beitrag": 11.67,
+            "deckung": "300.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Nein",
+            "test": "-",
+            "isErgo": false
+          },
+          {
+            "anbieter": "ARAG",
+            "tarif": "Aktiv Komfort",
+            "beitrag": 14.73,
+            "deckung": "300.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Nein",
+            "test": "-",
+            "isErgo": false
           },
           {
             "anbieter": "HUK-COBURG",
@@ -2184,10 +2484,22 @@
             "isErgo": false
           },
           {
-            "anbieter": "WGV",
-            "tarif": "PBV Optimal",
-            "beitrag": 343,
-            "deckung": "1 Mio€",
+            "anbieter": "Concordia",
+            "tarif": "Sorglos",
+            "beitrag": 277,
+            "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Nein",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Allianz",
+            "tarif": "Smart",
+            "beitrag": 298,
+            "deckung": "500.000€",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
@@ -2208,9 +2520,9 @@
             "isErgo": false
           },
           {
-            "anbieter": "ARAG",
-            "tarif": "Komfort Familie",
-            "beitrag": 450,
+            "anbieter": "WGV",
+            "tarif": "PBV Optimal",
+            "beitrag": 343,
             "deckung": "1 Mio€",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
@@ -2220,14 +2532,38 @@
             "isErgo": false
           },
           {
-            "anbieter": "Concordia",
-            "tarif": "Sorglos",
-            "beitrag": 277,
+            "anbieter": "ÖRAG",
+            "tarif": "Komfort",
+            "beitrag": 372,
+            "deckung": "500.000€",
+            "selbstbet": "250€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Nein",
+            "test": "Fair Testsieger",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Advocard",
+            "tarif": "Standard",
+            "beitrag": 384,
             "deckung": "500.000€",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
-            "onlineBeratung": "Nein",
+            "onlineBeratung": "Ja (tel.)",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "LVM",
+            "tarif": "Standard",
+            "beitrag": 396,
+            "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Ja",
             "test": "Gut",
             "isErgo": false
           },
@@ -2244,10 +2580,46 @@
             "isErgo": false
           },
           {
-            "anbieter": "Allianz",
-            "tarif": "Smart",
-            "beitrag": 298,
+            "anbieter": "Gothaer",
+            "tarif": "Komfort",
+            "beitrag": 408,
             "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Ja",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "HDI",
+            "tarif": "Standard",
+            "beitrag": 420,
+            "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Ja",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "R+V",
+            "tarif": "Standard",
+            "beitrag": 432,
+            "deckung": "500.000€",
+            "selbstbet": "150€",
+            "wartezeit": "3 Mon",
+            "mediation": "Ja",
+            "onlineBeratung": "Ja",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "ARAG",
+            "tarif": "Komfort Familie",
+            "beitrag": 450,
+            "deckung": "1 Mio€",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
@@ -2268,18 +2640,6 @@
             "isErgo": false
           },
           {
-            "anbieter": "Roland",
-            "tarif": "Komfort",
-            "beitrag": 510,
-            "deckung": "1 Mio€",
-            "selbstbet": "150€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Ja",
-            "test": "Fair 7x",
-            "isErgo": false
-          },
-          {
             "anbieter": "DAS",
             "tarif": "Premium",
             "beitrag": 480,
@@ -2292,76 +2652,40 @@
             "isErgo": false
           },
           {
-            "anbieter": "R+V",
-            "tarif": "Standard",
-            "beitrag": 432,
-            "deckung": "500.000€",
-            "selbstbet": "150€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Ja",
-            "test": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Gothaer",
+            "anbieter": "Roland",
             "tarif": "Komfort",
-            "beitrag": 408,
-            "deckung": "500.000€",
+            "beitrag": 510,
+            "deckung": "1 Mio€",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
             "onlineBeratung": "Ja",
-            "test": "Gut",
+            "test": "Fair 7x",
             "isErgo": false
           },
           {
-            "anbieter": "Advocard",
-            "tarif": "Standard",
-            "beitrag": 384,
-            "deckung": "500.000€",
-            "selbstbet": "150€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Ja (tel.)",
-            "test": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "ÖRAG",
+            "anbieter": "ERGO",
             "tarif": "Komfort",
-            "beitrag": 372,
-            "deckung": "500.000€",
-            "selbstbet": "250€",
-            "wartezeit": "3 Mon",
-            "mediation": "Ja",
-            "onlineBeratung": "Nein",
-            "test": "Fair Testsieger",
-            "isErgo": false
-          },
-          {
-            "anbieter": "HDI",
-            "tarif": "Standard",
-            "beitrag": 420,
-            "deckung": "500.000€",
+            "beitrag": 652,
+            "deckung": "Unbegrenzt",
             "selbstbet": "150€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
             "onlineBeratung": "Ja",
-            "test": "Gut",
-            "isErgo": false
+            "test": "Gut (2,2)",
+            "isErgo": true
           },
           {
-            "anbieter": "LVM",
-            "tarif": "Standard",
-            "beitrag": 396,
-            "deckung": "500.000€",
-            "selbstbet": "150€",
+            "anbieter": "ERGO",
+            "tarif": "Premium",
+            "beitrag": 815,
+            "deckung": "Unbegrenzt",
+            "selbstbet": "0€",
             "wartezeit": "3 Mon",
             "mediation": "Ja",
             "onlineBeratung": "Ja",
-            "test": "Gut",
-            "isErgo": false
+            "test": "Sehr gut (1,3)",
+            "isErgo": true
           }
         ]
       }
@@ -2394,45 +2718,6 @@
       "defaultSort": "Jahresbeitrag",
       "data": {
         "Hamburg": [
-          {
-            "anbieter": "ERGO",
-            "tarif": "Smart",
-            "beitrag": 155,
-            "grobeFahrl": "Nein",
-            "unterversV": "Nein",
-            "fahrrad": "1.000€",
-            "glas": "Optional",
-            "elementar": "Optional",
-            "uebersp": "Optional",
-            "test": "Fair",
-            "isErgo": true
-          },
-          {
-            "anbieter": "ERGO",
-            "tarif": "Top",
-            "beitrag": 195,
-            "grobeFahrl": "Nein",
-            "unterversV": "Ja",
-            "fahrrad": "1.000€",
-            "glas": "Inklusive",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "Fair",
-            "isErgo": true
-          },
-          {
-            "anbieter": "ERGO",
-            "tarif": "Premium",
-            "beitrag": 245,
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "fahrrad": "5.000€",
-            "glas": "Inklusive",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "Fair",
-            "isErgo": true
-          },
           {
             "anbieter": "DEVK",
             "tarif": "Komfort",
@@ -2486,6 +2771,32 @@
             "isErgo": false
           },
           {
+            "anbieter": "InterRisk",
+            "tarif": "XXL",
+            "beitrag": 130,
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "fahrrad": "5.000€",
+            "glas": "Inklusive",
+            "elementar": "Optional",
+            "uebersp": "Ja",
+            "test": "Testsieger",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Adam Riese",
+            "tarif": "Premium",
+            "beitrag": 135,
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "fahrrad": "5.000€",
+            "glas": "Inklusive",
+            "elementar": "Optional",
+            "uebersp": "Ja",
+            "test": "F&B Top",
+            "isErgo": false
+          },
+          {
             "anbieter": "Württembergische",
             "tarif": "Komfort",
             "beitrag": 140,
@@ -2512,6 +2823,19 @@
             "isErgo": false
           },
           {
+            "anbieter": "Debeka",
+            "tarif": "Komfort",
+            "beitrag": 148,
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "fahrrad": "3.000€",
+            "glas": "Optional",
+            "elementar": "Optional",
+            "uebersp": "Ja",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
             "anbieter": "Gothaer",
             "tarif": "Premium",
             "beitrag": 150,
@@ -2525,48 +2849,9 @@
             "isErgo": false
           },
           {
-            "anbieter": "Allianz",
+            "anbieter": "LVM",
             "tarif": "Komfort",
-            "beitrag": 170,
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "fahrrad": "10.000€",
-            "glas": "Optional",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "Top Image",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Adam Riese",
-            "tarif": "Premium",
-            "beitrag": 135,
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "fahrrad": "5.000€",
-            "glas": "Inklusive",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "F&B Top",
-            "isErgo": false
-          },
-          {
-            "anbieter": "InterRisk",
-            "tarif": "XXL",
-            "beitrag": 130,
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "fahrrad": "5.000€",
-            "glas": "Inklusive",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "Testsieger",
-            "isErgo": false
-          },
-          {
-            "anbieter": "R+V",
-            "tarif": "Komfort",
-            "beitrag": 160,
+            "beitrag": 150,
             "grobeFahrl": "Ja",
             "unterversV": "Ja",
             "fahrrad": "3.000€",
@@ -2575,6 +2860,19 @@
             "uebersp": "Ja",
             "test": "Gut",
             "isErgo": false
+          },
+          {
+            "anbieter": "ERGO",
+            "tarif": "Smart",
+            "beitrag": 155,
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "fahrrad": "1.000€",
+            "glas": "Optional",
+            "elementar": "Optional",
+            "uebersp": "Ja",
+            "test": "Gut (2,5)",
+            "isErgo": true
           },
           {
             "anbieter": "HDI",
@@ -2590,9 +2888,22 @@
             "isErgo": false
           },
           {
-            "anbieter": "LVM",
+            "anbieter": "Provinzial",
             "tarif": "Komfort",
-            "beitrag": 150,
+            "beitrag": 155,
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "fahrrad": "3.000€",
+            "glas": "Optional",
+            "elementar": "Optional",
+            "uebersp": "Ja",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "R+V",
+            "tarif": "Komfort",
+            "beitrag": 160,
             "grobeFahrl": "Ja",
             "unterversV": "Ja",
             "fahrrad": "3.000€",
@@ -2616,6 +2927,19 @@
             "isErgo": false
           },
           {
+            "anbieter": "Allianz",
+            "tarif": "Komfort",
+            "beitrag": 170,
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "fahrrad": "10.000€",
+            "glas": "Optional",
+            "elementar": "Optional",
+            "uebersp": "Ja",
+            "test": "Top Image",
+            "isErgo": false
+          },
+          {
             "anbieter": "Generali",
             "tarif": "Optimal",
             "beitrag": 175,
@@ -2629,72 +2953,20 @@
             "isErgo": false
           },
           {
-            "anbieter": "Provinzial",
-            "tarif": "Komfort",
-            "beitrag": 155,
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "fahrrad": "3.000€",
-            "glas": "Optional",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "Gut",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Debeka",
-            "tarif": "Komfort",
-            "beitrag": 148,
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "fahrrad": "3.000€",
-            "glas": "Optional",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "Gut",
-            "isErgo": false
-          }
-        ],
-        "München": [
-          {
             "anbieter": "ERGO",
-            "tarif": "Smart",
-            "beitrag": 126,
-            "grobeFahrl": "Nein",
-            "unterversV": "Nein",
-            "fahrrad": "1.000€",
-            "glas": "Optional",
-            "elementar": "Optional",
-            "uebersp": "Optional",
-            "test": "Fair",
-            "isErgo": true
-          },
-          {
-            "anbieter": "ERGO",
-            "tarif": "Top",
-            "beitrag": 158,
-            "grobeFahrl": "Nein",
-            "unterversV": "Ja",
-            "fahrrad": "1.000€",
-            "glas": "Inklusive",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "Fair",
-            "isErgo": true
-          },
-          {
-            "anbieter": "ERGO",
-            "tarif": "Premium",
-            "beitrag": 199,
+            "tarif": "Best",
+            "beitrag": 220,
             "grobeFahrl": "Ja",
             "unterversV": "Ja",
             "fahrrad": "5.000€",
             "glas": "Inklusive",
-            "elementar": "Optional",
+            "elementar": "Inklusive",
             "uebersp": "Ja",
-            "test": "Fair",
+            "test": "Sehr gut (1,4)",
             "isErgo": true
-          },
+          }
+        ],
+        "München": [
           {
             "anbieter": "DEVK",
             "tarif": "Komfort",
@@ -2735,19 +3007,6 @@
             "isErgo": false
           },
           {
-            "anbieter": "CosmosDirekt",
-            "tarif": "Komfort",
-            "beitrag": 105,
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "fahrrad": "2.000€",
-            "glas": "Optional",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "Gut",
-            "isErgo": false
-          },
-          {
             "anbieter": "Gothaer",
             "tarif": "Premium",
             "beitrag": 102,
@@ -2761,42 +3020,16 @@
             "isErgo": false
           },
           {
-            "anbieter": "HUK-COBURG",
-            "tarif": "Optimal",
-            "beitrag": 117,
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "fahrrad": "3.000€",
-            "glas": "Optional",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "Testsieger P/L",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Allianz",
+            "anbieter": "CosmosDirekt",
             "tarif": "Komfort",
-            "beitrag": 138,
+            "beitrag": 105,
             "grobeFahrl": "Ja",
             "unterversV": "Ja",
-            "fahrrad": "10.000€",
+            "fahrrad": "2.000€",
             "glas": "Optional",
             "elementar": "Optional",
             "uebersp": "Ja",
-            "test": "Top Image",
-            "isErgo": false
-          },
-          {
-            "anbieter": "Adam Riese",
-            "tarif": "Premium",
-            "beitrag": 109,
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "fahrrad": "5.000€",
-            "glas": "Inklusive",
-            "elementar": "Optional",
-            "uebersp": "Ja",
-            "test": "F&B Top",
+            "test": "Gut",
             "isErgo": false
           },
           {
@@ -2813,22 +3046,35 @@
             "isErgo": false
           },
           {
-            "anbieter": "R+V",
-            "tarif": "Komfort",
-            "beitrag": 130,
+            "anbieter": "Adam Riese",
+            "tarif": "Premium",
+            "beitrag": 109,
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "fahrrad": "5.000€",
+            "glas": "Inklusive",
+            "elementar": "Optional",
+            "uebersp": "Ja",
+            "test": "F&B Top",
+            "isErgo": false
+          },
+          {
+            "anbieter": "HUK-COBURG",
+            "tarif": "Optimal",
+            "beitrag": 117,
             "grobeFahrl": "Ja",
             "unterversV": "Ja",
             "fahrrad": "3.000€",
             "glas": "Optional",
             "elementar": "Optional",
             "uebersp": "Ja",
-            "test": "Gut",
+            "test": "Testsieger P/L",
             "isErgo": false
           },
           {
-            "anbieter": "HDI",
+            "anbieter": "Debeka",
             "tarif": "Komfort",
-            "beitrag": 126,
+            "beitrag": 120,
             "grobeFahrl": "Ja",
             "unterversV": "Ja",
             "fahrrad": "3.000€",
@@ -2852,6 +3098,32 @@
             "isErgo": false
           },
           {
+            "anbieter": "HDI",
+            "tarif": "Komfort",
+            "beitrag": 126,
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "fahrrad": "3.000€",
+            "glas": "Optional",
+            "elementar": "Optional",
+            "uebersp": "Ja",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "R+V",
+            "tarif": "Komfort",
+            "beitrag": 130,
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "fahrrad": "3.000€",
+            "glas": "Optional",
+            "elementar": "Optional",
+            "uebersp": "Ja",
+            "test": "Gut",
+            "isErgo": false
+          },
+          {
             "anbieter": "AXA",
             "tarif": "M",
             "beitrag": 134,
@@ -2862,6 +3134,19 @@
             "elementar": "Optional",
             "uebersp": "Ja",
             "test": "Gut",
+            "isErgo": false
+          },
+          {
+            "anbieter": "Allianz",
+            "tarif": "Komfort",
+            "beitrag": 138,
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "fahrrad": "10.000€",
+            "glas": "Optional",
+            "elementar": "Optional",
+            "uebersp": "Ja",
+            "test": "Top Image",
             "isErgo": false
           },
           {
@@ -2878,17 +3163,30 @@
             "isErgo": false
           },
           {
-            "anbieter": "Debeka",
-            "tarif": "Komfort",
-            "beitrag": 120,
-            "grobeFahrl": "Ja",
-            "unterversV": "Ja",
-            "fahrrad": "3.000€",
+            "anbieter": "ERGO",
+            "tarif": "Smart",
+            "beitrag": 178,
+            "grobeFahrl": "Nein",
+            "unterversV": "Nein",
+            "fahrrad": "1.000€",
             "glas": "Optional",
             "elementar": "Optional",
             "uebersp": "Ja",
-            "test": "Gut",
-            "isErgo": false
+            "test": "Gut (2,5)",
+            "isErgo": true
+          },
+          {
+            "anbieter": "ERGO",
+            "tarif": "Best",
+            "beitrag": 253,
+            "grobeFahrl": "Ja",
+            "unterversV": "Ja",
+            "fahrrad": "5.000€",
+            "glas": "Inklusive",
+            "elementar": "Inklusive",
+            "uebersp": "Ja",
+            "test": "Sehr gut (1,4)",
+            "isErgo": true
           }
         ]
       }
