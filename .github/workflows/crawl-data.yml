@@ -1,0 +1,40 @@
+name: Wettbewerbsdaten aktualisieren
+
+on:
+  # Monatlich am 1. um 9:00 Uhr
+  schedule:
+    - cron: '0 7 1 * *'  # 7 UTC = 9 MESZ
+  # Manuell per Button oder API auslösbar
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install puppeteer cheerio
+
+      - name: Crawl insurance data
+        run: node scripts/crawl.js
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add data.json
+          if git diff --staged --quiet; then
+            echo "Keine Änderungen gefunden."
+          else
+            git commit -m "Wettbewerbsdaten aktualisiert ($(date +%Y-%m-%d))"
+            git push
+          fi
