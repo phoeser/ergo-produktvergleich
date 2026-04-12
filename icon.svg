@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C2002F"/>
+      <stop offset="100%" stop-color="#8B0022"/>
+    </linearGradient>
+    <linearGradient id="bar1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FFB800" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded background -->
+  <rect width="512" height="512" rx="96" ry="96" fill="url(#bg)"/>
+
+  <!-- ERGO Text -->
+  <text x="256" y="210" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="148" fill="#FFFFFF" letter-spacing="8">ERGO</text>
+
+  <!-- Subtle divider line -->
+  <line x1="100" y1="248" x2="412" y2="248" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="2"/>
+
+  <!-- Bar chart -->
+  <!-- Bar 1 - shortest -->
+  <rect x="100" y="340" width="52" height="100" rx="6" ry="6" fill="url(#bar1)"/>
+  <!-- Bar 2 - medium -->
+  <rect x="168" y="310" width="52" height="130" rx="6" ry="6" fill="url(#bar1)"/>
+  <!-- Bar 3 - tallest (highlighted) -->
+  <rect x="236" y="275" width="52" height="165" rx="6" ry="6" fill="url(#bar2)"/>
+  <!-- Bar 4 - medium-tall -->
+  <rect x="304" y="295" width="52" height="145" rx="6" ry="6" fill="url(#bar1)"/>
+  <!-- Bar 5 - medium -->
+  <rect x="372" y="320" width="52" height="120" rx="6" ry="6" fill="url(#bar1)"/>
+
+  <!-- Small upward trend arrow over bars -->
+  <polyline points="116,335 194,300 262,268 330,285 398,312" fill="none" stroke="#FFD700" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8"/>
+  <polygon points="398,312 388,298 404,304" fill="#FFD700" fill-opacity="0.8"/>
+</svg>
