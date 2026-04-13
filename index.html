@@ -1258,6 +1258,50 @@
             document.getElementById('updateModal').classList.remove('active');
         }
 
+        // XOR-Entschlüsselung mit PIN (Hex-kodiert)
+        function xorDecrypt(hexStr, pin) {
+            const key = String(pin);
+            let result = '';
+            for (let i = 0; i < hexStr.length; i += 2) {
+                const charCode = parseInt(hexStr.substr(i, 2), 16);
+                result += String.fromCharCode(charCode ^ key.charCodeAt((i / 2) % key.length));
+            }
+            return result;
+        }
+
+        let _cachedToken = null;
+
+        async function getToken() {
+            if (_cachedToken) return _cachedToken;
+            const local = localStorage.getItem('gh_pat');
+            if (local) { _cachedToken = local; return local; }
+
+            // Aus trigger-config.js laden (PIN-verschlüsselt)
+            try {
+                const resp = await fetch('trigger-config.js?t=' + Date.now());
+                if (resp.ok) {
+                    const text = await resp.text();
+                    const match = text.match(/ENCRYPTED\s*=\s*["']([^"']+)["']/);
+                    if (match && match[1]) {
+                        const pin = prompt('PIN eingeben (4 Ziffern):');
+                        if (pin) {
+                            const token = xorDecrypt(match[1], pin);
+                            if (token.startsWith('ghp_') || token.startsWith('github_pat_')) {
+                                localStorage.setItem('gh_pat', token);
+                                _cachedToken = token;
+                                return token;
+                            } else {
+                                alert('Falsche PIN.');
+                                return null;
+                            }
+                        }
+                    }
+                }
+            } catch(e) { /* Config nicht vorhanden */ }
+
+            return null;
+        }
+
         async function triggerCrawl() {
             const btn = document.querySelector('.modal-actions .btn-primary');
             const origText = btn.textContent;
@@ -1265,13 +1309,12 @@
             btn.disabled = true;
 
             try {
-                // Versuche GitHub Action zu triggern
-                const token = localStorage.getItem('gh_pat') || '';
+                let token = await getToken();
                 if (!token) {
-                    // Zeige Token-Eingabe
-                    const pat = prompt('GitHub Personal Access Token eingeben (wird lokal gespeichert):');
+                    const pat = prompt('GitHub Token eingeben (nur einmalig nötig):');
                     if (pat) {
                         localStorage.setItem('gh_pat', pat);
+                        _cachedToken = pat;
                         await dispatchWorkflow(pat);
                     } else {
                         alert('Ohne Token kann die Aktualisierung nicht gestartet werden.');
@@ -1280,7 +1323,7 @@
                     await dispatchWorkflow(token);
                 }
             } catch(e) {
-                alert('Fehler: ' + e.message + '\n\nAlternativ: \u00d6ffne Claude Cowork und sage "Bitte aktualisiere die Wettbewerbsdaten".');
+                alert('Fehler: ' + e.message);
             }
 
             btn.textContent = origText;
@@ -1298,11 +1341,12 @@
                 body: JSON.stringify({ ref: 'main' })
             });
             if (resp.status === 204) {
-                alert('Aktualisierung gestartet! Die neuen Daten sind in ca. 5 Minuten verf\u00fcgbar. Lade die Seite dann neu.');
+                alert('Aktualisierung gestartet! Die neuen Daten sind in ca. 5 Minuten verfügbar. Lade die Seite dann neu.');
                 closeUpdateModal();
             } else if (resp.status === 401 || resp.status === 403) {
                 localStorage.removeItem('gh_pat');
-                throw new Error('Token ung\u00fcltig oder abgelaufen. Bitte erneut eingeben.');
+                _cachedToken = null;
+                throw new Error('Token ungültig oder abgelaufen. Bitte erneut eingeben.');
             } else {
                 throw new Error('GitHub API Fehler (Status ' + resp.status + ')');
             }
