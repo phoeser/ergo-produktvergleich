@@ -1,9 +1,9 @@
 name: Wettbewerbsdaten aktualisieren
 
 on:
-  # Monatlich am 1. um 9:00 Uhr
+  # Monatlich am 1. um 9:00 Uhr (7 UTC = 9 MESZ)
   schedule:
-    - cron: '0 7 1 * *'  # 7 UTC = 9 MESZ
+    - cron: '0 7 1 * *'
   # Manuell per Button oder API auslösbar
   workflow_dispatch:
 
@@ -13,6 +13,7 @@ permissions:
 jobs:
   crawl:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -22,10 +23,15 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install cheerio
+        run: npm install playwright
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
 
       - name: Crawl insurance data
         run: node scripts/crawl.js
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: 0
 
       - name: Commit and push updated data
         run: |
